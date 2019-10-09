@@ -23,8 +23,7 @@ function compareFruits(){
         return a.price - b.price;
     });
 
-    alert(`Dagens fruktsalat består av: ${fruits[0].name}, ${fruits[1].name} og ${fruits[2].name}.  
-        \n Dyreste ingrediens er: ${fruits[2].name}, som koster ${fruits[2].price}
+    alert(`Dyreste ingrediens er: ${fruits[fruits.length-1].name}, som koster ${fruits[fruits.length-1].price}
         \n Billigste ingrediens er: ${fruits[0].name}, som koster ${fruits[0].price}`);
 return false;   
 };
