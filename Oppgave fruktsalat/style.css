@@ -16,7 +16,9 @@ footer {
     width: 100%;
 }
 
-main {}
+h2{
+    padding: 2vh;
+}
 
 .background-image {
     background-image: url("https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.cookingclassy.com%2Fwp-content%2Fuploads%2F2018%2F03%2Ffruit-salad-2.jpg&f=1&nofb=1"), linear-gradient( rgba(255, 0, 0, 0), rgba(55, 55, 55, 1));
@@ -25,7 +27,7 @@ main {}
     background-attachment: scroll;
     background-blend-mode: darken;
     margin: 0px;
-    height: 200vh;
+    height: 100vh;
 }
 
 .title {
