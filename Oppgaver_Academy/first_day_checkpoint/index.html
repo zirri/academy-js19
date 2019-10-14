@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Fruktsalat</title>
+    <title>todos</title>
     <link href="style.css" type="text/css" rel="stylesheet">
     <script src="script.js"></script>   
 </head>
@@ -13,14 +13,17 @@
         <main>
 
             <h1 class="title">todos</h1>
-
-            <form action="" onsubmit="return function()">  
-                
-                <input type="submit" id="submit" name="submit" value="" />
+            <form action="" onsubmit="return addTask()">
+                <input type="text" id="inputItem">
+                <br>
+                <input type="submit" id="submit" name="submit" value="Add task" />
             </form>
+            <div id="todoList">
+                
+            </div>
         </main>
         <footer>
-            <p>By Anne-Siri Borander, 2019</p>
+            <p></p>
         </footer>
     </div>
 </body>
