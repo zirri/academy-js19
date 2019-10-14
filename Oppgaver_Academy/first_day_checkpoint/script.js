@@ -1,9 +1,9 @@
-let existingList = [];
+let todoList = [];
 
 function addTask(){
     const newItem = document.getElementById("inputItem");
-    existingList.push(newItem);
+    todoList.push(newItem);
     document.getElementById("todoList").innerHTML += `<li>${newItem.value}<li>`;
-    document.getElementById("numberOfTasks").innerHTML = `Total: ${existingList.length} tasks`;
+    document.getElementById("numberOfTasks").innerHTML = `Total: ${todoList.length} tasks`;
     return false;
 }
