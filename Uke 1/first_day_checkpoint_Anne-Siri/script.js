@@ -4,7 +4,7 @@ let todoList = [];
 
 function calculateCompletedTasks(){
     let completedCounter = 0;
-    for(let i=0; i<todoList.length;i++){
+    for(let i; i<todoList.length;i++){
         if(todoList[i].completed){
             completedCounter ++;
         }

@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Poppins Bold'), local('Poppins-Bold'), url(https://fonts.gstatic.com/s/poppins/v8/pxiByp8kv8JHgFVrLCz7Z1xlFQ.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+html{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-family: 'Poppins';
+    font-size: 2.6em;
+    background-color: #006600;
+    color: #fff;
+    background-size: cover;
+    padding: 10.5px 0;
+}
+
+h3{
+    padding: 8px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+ul{
+    list-style-position: inside;
+}
+
+.item2 { grid-area: Tekst;}
+.item3 { grid-area: For;}
+.item4 { grid-area: While;}
+.item5 { grid-area: Nested;}
+
+
+.grid-container{
+    display: grid;
+    grid-template-areas: 
+        'Tekst Tekst Tekst Tekst'
+        'For For While While'
+        'Nested Nested Nested Nested';
+    grid-gap: 10px;
+    background-color: #006600;
+    padding: 10px;
+    width: 1040px;
+    margin: 30px auto;
+}
+
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+    color: black;
+  }
+
+.header{
+    display: block;
+    overflow: hidden;
+    border: none;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-image: url(./loops.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+}
