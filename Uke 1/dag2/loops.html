@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="utf-8" />
+    <title>test</title>
+    
+</head>
+
+<body>
+    <h1>Oppgaver iterasjon</h1>
+    <div id="oppgave1">
+        <h2>Oppgave 1:</h2>      
+        <script>
+                var i = 0;
+                while(i<=50){
+                    document.getElementById("oppgave1").innerHTML += i+" ";
+                    i++;
+                }
+                document.getElementById("oppgave1").innerHTML +="<br><br>";
+                for(var i=0; i<=50; i++){
+                    document.getElementById("oppgave1").innerHTML += i+" ";
+                }
+        </script>
+    </div>
+    <div id="oppgave2">
+            <h2>Oppgave 2:</h2>   
+        <script>
+                var i = 0;
+                while(i<=50){
+                    document.getElementById("oppgave2").innerHTML += i+" ";
+                    i = i+2;
+                }
+                document.getElementById("oppgave2").innerHTML +="<br><br>";
+                for(var i=0; i<=50; i=i+2){
+                    document.getElementById("oppgave2").innerHTML += i+" ";
+                }
+        </script>
+    </div>
+    <div id="oppgave3">
+        <h2>Oppgave 3:</h2>   
+        <script>
+                var i = 20;
+                while(i>=-30){
+                    document.getElementById("oppgave3").innerHTML += i+" ";
+                    i = i-2;
+                }
+                document.getElementById("oppgave3").innerHTML +="<br><br>";
+                for(var i=20; i>=-30; i=i-2){
+                    document.getElementById("oppgave3").innerHTML += i+" ";
+                }
+        </script>
+    </div>
+    <div id="oppgave4">
+        <h2>Oppgave 4:</h2>   
+        <script>
+            var i = 0;
+            while(i<=100){
+                if ((i%7) == 0){
+                    document.getElementById("oppgave4").innerHTML += i+" ";
+                };
+                i++;
+            }
+
+            document.getElementById("oppgave4").innerHTML +="<br><br>";
+            for(var i=0; i<=100; i++){
+                if ((i%7) == 0){
+                    document.getElementById("oppgave4").innerHTML += i+" ";
+                };
+            }
+        </script>
+    </div>
+    <div id="oppgave5">
+        <h2>Oppgave 5:</h2>   
+        <script>
+            var i = 0;
+            while(i<=20){
+                if (i != 13 && i != 17){
+                    document.getElementById("oppgave5").innerHTML += i+" ";
+                };
+                i++;
+            }
+
+            document.getElementById("oppgave5").innerHTML +="<br><br>";
+            for(var i=0; i<=20; i++){
+                if (i != 13 && i != 17){
+                    document.getElementById("oppgave5").innerHTML += i+" ";
+                };
+            }
+        </script>
+    </div>
+    <div id="oppgave6">
+        <h2>Oppgave 6:</h2>   
+        <script>
+            var i = 0;
+            while(i<=20){
+                if ((i%2)==0){
+                    document.getElementById("oppgave6").innerHTML += i+" ";
+                };
+                i++;
+            }
+
+            document.getElementById("oppgave6").innerHTML +="<br><br>";
+            for(var i=0; i<=20; i++){
+                if ((i%2)==0){
+                    document.getElementById("oppgave6").innerHTML += i+" ";
+                };
+            }
+        </script>
+    </div>
+    <div id="oppgave7">
+        <h2>Oppgave 7:</h2>   
+        <script>
+            var i = -20;
+            while(i<=20){
+                if (Math.abs(i%2)==1){
+                    document.getElementById("oppgave7").innerHTML += i+" ";
+                };
+                i++;
+            }
+
+            document.getElementById("oppgave7").innerHTML +="<br><br>";
+            for(var i=-20; i<=20; i++){
+                if (Math.abs(i%2)==1){
+                    document.getElementById("oppgave7").innerHTML += i+" ";
+                };
+            }
+        </script>
+    </div>
+    <div id="oppgave8">
+        <h2>Oppgave 8:</h2>   
+        <script>
+            var i = 0;
+            while(i<5){
+                    document.getElementById("oppgave8").innerHTML += "*****<br>";
+                i++;
+            }
+
+            document.getElementById("oppgave8").innerHTML +="<br><br>";
+            for(var i=0; i<5; i++){
+                document.getElementById("oppgave8").innerHTML += "*****<br>";
+            }
+        </script>
+    </div>
+    <div id="oppgave9">
+        <h2>Oppgave 9:</h2>   
+        <script>
+            var i = 0;
+            var printOut = "";
+            while(i<7){
+                if(i<4){
+                    printOut += "*"
+                    document.getElementById("oppgave9").innerHTML += (printOut)+"<br>";
+                }else{
+                    printOut = printOut.substring(0,printOut.length-1)
+                    document.getElementById("oppgave9").innerHTML += (printOut)+"<br>";
+                }
+                i++
+            }
+
+            document.getElementById("oppgave9").innerHTML +="<br><br>";
+            printOut = "";
+            for(var i=0; i<7; i++){
+                if(i<4){
+                    printOut += "*"
+                    document.getElementById("oppgave9").innerHTML += (printOut)+"<br>";
+                }else{
+                    printOut = printOut.substring(0,printOut.length-1)
+                    document.getElementById("oppgave9").innerHTML += (printOut)+"<br>";
+                }
+            }
+        </script>
+    </div>
+    <div id="oppgave10">
+            <h2>Oppgave 10:</h2>   
+            <script>
+                var i = 1;
+                var j = 1;   
+                while(i<=6){
+                    while(j<=6){
+                        document.getElementById("oppgave10").innerHTML += (i*j)+" ";
+                        j++;
+                    }
+                    document.getElementById("oppgave10").innerHTML += "<br>";
+                    j=1;
+                    i++
+                }
+    
+                document.getElementById("oppgave10").innerHTML +="<br><br>";
+
+                for(var i=1; i<7; i++){
+                    for(var j=1; j<7; j++){
+                        document.getElementById("oppgave10").innerHTML += (i*j)+" ";
+                    }
+                    document.getElementById("oppgave10").innerHTML += "<br>";
+                    j=1;
+                }
+            </script>
+        </div>
+</body>
+
+</html>

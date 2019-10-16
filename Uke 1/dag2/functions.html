@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="utf-8" />
+    <title>test</title>
+    
+</head>
+
+<body>
+    <h1>Oppgaver funksjoner</h1>
+    <div id="oppgaver">  
+        <script>
+            function printRange(n,m){
+                for(var i=n; i<=m; i++){
+                    document.getElementById("oppgaver").innerHTML += i+" ";
+                };
+            
+            };
+
+            function printEveryThirdInRange(n,m){
+                for(var i=n; i<=m; i= i+3){
+                    document.getElementById("oppgaver").innerHTML += i+" "; 
+                }
+            }
+
+            function printEveryXInRange(n,m,x){
+                for(var i=n; i<=m; i= i+x){
+                    document.getElementById("oppgaver").innerHTML += i+" ";
+                }; 
+            }
+
+            function printEveryXInRangeBackwards(n,m,x){
+                for(var i=n; i>=m; i= i-x){
+                    document.getElementById("oppgaver").innerHTML += i+" ";
+                }
+            }
+
+            function printDivisibleRange(n,m,x){
+                for(var i=n; i<m; i++){
+                    if((i%x)==0){
+                        document.getElementById("oppgaver").innerHTML += i+" ";
+                    }   
+                }
+            }
+
+            function printPattern1(n){
+                starString="";
+                for (let i=0; i<n; i++){
+                    starString = starString + "*";
+                }
+                //starString = star.repeat(n);
+                for(var i=0; i<n; i++){
+                    document.getElementById("oppgaver").innerHTML += starString+"<br>";
+                }
+            }
+
+            function printPattern2(n,m){
+                star="*";
+                starString = star.repeat(m);
+                for(var i=0; i<n; i++){
+                    document.getElementById("oppgaver").innerHTML += starString+"<br>";
+                }
+            }
+
+            function printPattern3(m){
+                starString="";
+                for(i=0; i<2*m; i++){
+                    if(i<m){
+                        starString += "*";
+                        document.getElementById("oppgaver").innerHTML += starString+"<br>";
+                    }else{
+                        starString = starString.substring(0,starString.length-1);
+                        document.getElementById("oppgaver").innerHTML += starString+"<br>";
+                    }
+                }
+            }
+
+            function printTable(n,m){
+                for(var i=1; i<=n; i++){
+                    for(var j=1; j<=m; j++){
+                        document.getElementById("oppgaver").innerHTML += i*j+" ";
+                    }
+                    document.getElementById("oppgaver").innerHTML += "<br>";
+                }
+            }
+
+            document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 1</h2>";
+            printRange(1,20);
+            document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 2</h2>";
+            printEveryThirdInRange(1,20);
+            document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 3</h2>";
+            printEveryXInRange(0,200,5);
+            document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 4</h2>";
+            printEveryXInRangeBackwards(100,20,5);
+            document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 5</h2>";
+            printDivisibleRange(0,30,3);
+            document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 6</h2>";
+            printPattern1(6);
+            document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 7</h2>";
+            printPattern2(3,4);
+            document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 8</h2>";
+            printPattern3(4);
+            document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 9</h2>";
+            printTable(4,4);
+        </script>
+    </div>
+</body>
+
+</html>
