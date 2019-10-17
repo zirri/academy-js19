@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="no">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Money conversation</title>
+        
+        
+    </head>
+
+    <body>
+        <h1>Convert currency</h1>
+
+        <form>
+            <label for="fromCurrency">Convert from:</label>
+
+            <input type="text" id="inputAmount"></input>
+            <select id="fromCurrency">
+                <option value="NOK">NOK</option>
+                <option value="SEK">SEK</option>
+                <option value="DKK">DKK</option>
+            </select> 
+            <br>
+            <label for="toCurrency">Convert to:</label>
+            <select id="toCurrency">
+                <option value="NOK">NOK</option>
+                <option value="SEK">SEK</option>
+                <option value="DKK">DKK</option>
+            </select>
+            <br>
+            
+            <button type="button"onclick="convertCurrency()">Convert values</button> 
+        </form>
+        <div id="result">  
+
+        </div>
+
+    <script src="./moneyConverter.js"></script>
+    </body>
+
+</html>

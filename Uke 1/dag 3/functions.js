@@ -79,6 +79,20 @@ function reverseWords(str){
 document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 5</h2>";
 document.getElementById("oppgaver").innerHTML += (reverseWords("I am a happy dog "));
 
+//oppgave 5 - alternativ
+function reverseWords2(str){
+    return str
+    .split("")
+    .reverse()
+    .join("")
+    .split(" ")
+    .reverse()
+    .join(" ");
+}
+
+document.getElementById("oppgaver").innerHTML += "<h2> alternativ løsning</h2>";
+document.getElementById("oppgaver").innerHTML += (reverseWords2("I am a happy dog "));
+
 //Oppgave 6
 function capitalize(str){
     var stringArray = str.split(". ");
@@ -93,6 +107,18 @@ function capitalize(str){
 }
 document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 6</h2>";
 document.getElementById("oppgaver").innerHTML += (capitalize("hello world. I am God."));
+
+//Oppgave 6 alternativ
+function capitilize2(str){
+    str = str.toLowerCase();
+    str = str.split('');
+    str[0] = str[0].toUpperCase();
+    str = str.join('');
+    return str;
+}
+document.getElementById("oppgaver").innerHTML += "<h2> alternativ løsning</h2>";
+document.getElementById("oppgaver").innerHTML += capitilize2("hELlo wOrLd");
+
 
 //Oppgave 7
 function areaOfCircle(r){
