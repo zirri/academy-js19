@@ -2,15 +2,13 @@
 document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 7</h2>";
 
 function flipCase(str){
-    var resultString = '';
-    for(var i=0; i<str.length; i++){
-        if(str.charAt(i)==str.charAt(i).toUpperCase()){
-            resultString += str.charAt(i).toLowerCase();
-        }else{
-            resultString += str.charAt(i).toUpperCase();
-        }
-    }
-    return resultString;
+    var arr = str.split('');
+    arr = arr.map(char => char == char.toUpperCase() 
+        ? char= char.toLowerCase() 
+        : char = char.toUpperCase()
+        );
+    resultStr = arr.join('');
+    return resultStr;
 }
 
 document.getElementById("oppgaver").innerHTML += flipCase("heLLO wORLD");
