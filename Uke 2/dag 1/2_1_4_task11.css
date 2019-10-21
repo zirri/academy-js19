@@ -1,0 +1,29 @@
+
+table {
+    letter-spacing: -0.05em;
+    width:100%;
+}
+
+tr:nth-child(even){
+    background-color: #aaaaaa;
+}
+
+tr:nth-child(odd){
+    background-color: #cccccc;
+}
+
+th {
+    background-color: #817f26;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    padding: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}

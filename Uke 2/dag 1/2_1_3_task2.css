@@ -1,0 +1,80 @@
+/* Generelt */
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: arial;
+    text-align: center;
+    color: grey;
+}
+
+/* Header */
+
+header {
+    background-image: linear-gradient( lightgrey, white);
+    height: 150px;
+}
+
+
+
+footer {
+    background-image: linear-gradient( white, lightgrey);
+    height: 150px;
+}
+
+
+
+nav a {
+    margin: 5px;
+    color: #bd7647;
+}
+
+h1{
+    padding:20px;
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+h2{
+    padding:20px;
+    font-family: fantasy;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+figure{
+    display: inline-block;
+    padding: 50px;
+}
+
+img{
+    width:300px;
+    max-height: 150px;
+
+}
+
+label{
+    text-align: right;
+}
+
+.grid-container {
+    width: 60%;
+    display: grid;
+    grid:auto / 1fr 2fr;
+    padding: 10px;
+    border: 2px lightgray solid;
+    margin: auto;
+}
+
+.grid-item {
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+.radio-items{
+    text-align: left;
+}

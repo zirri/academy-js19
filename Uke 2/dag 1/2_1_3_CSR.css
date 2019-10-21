@@ -1,0 +1,18 @@
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 2em;
+
+}
+
+header{
+    text-align: center;
+    padding: 1em;
+    background-color: rgba(255, 68, 0, 0.5);
+    height: 8vh;
+    min-height: 50px;
+}
+
