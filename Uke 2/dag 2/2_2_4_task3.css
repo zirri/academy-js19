@@ -1,14 +1,15 @@
 body{
     font-family: arial;
     display: grid;
-    grid-template-columns: 1fr minmax(300px, 3fr) minmax(170px, 1fr) 1fr;
-    grid-template-rows: 50px 30px 1fr 70px;
+    grid-template-columns: 1fr minmax(230px, 3fr) minmax(100px, 1fr) 1fr;
+    grid-template-rows: 50px 30px 1fr auto;
     grid-template-areas:
         "header header header header" 
         "nav nav nav nav" 
         ". article  aside ." 
         "footer footer  footer footer";
-    gap: 1em;
+    gap: 10px;
+    height:100vh;
 }
 
 header {
@@ -73,8 +74,9 @@ footer {
     font-family: 'Helvetica Neue';
     grid-area: footer;
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1.5fr 1fr;
+    grid-template-columns: 1fr minmax(165   px, 2fr) minmax(165px, 2fr) 1fr;
     grid-template-areas: ". span1 span2 .";
+    gap:10px;
 }
 
 span{
