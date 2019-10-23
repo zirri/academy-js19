@@ -1,32 +1,39 @@
-header{
+header {
     background-color: #A3A3A3;
-    height: 50px;   
+    height: 50px;
 }
 
 img {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 
-main{
+main {
     margin: 1em;
 }
 
-.gallery-container{
+.gallery-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1em;
     max-width: 1500px;
-    margin:auto;
+    margin: auto;
     grid-auto-flow: dense;
-    overflow: hidden;
 }
 
 .grid-item {
+    width: 100%;
+    padding-top: 100%;
     border-radius: 1em;
+    position: relative;
+    overflow: hidden;
 }
 
-.large{
+.large {
     grid-column-end: span 2;
     grid-row-end: span 2;
 }
