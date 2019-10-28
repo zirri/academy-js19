@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+        <link rel='stylesheet' type='text/css' media='screen' href='../../../reset.css'/>
+        <link rel='stylesheet' type='text/css' media='screen' href='medium.css'/>
+        <title>
+            Document
+        </title>
+    </head>
+    <body>
+        <aside class="follow-me">
+            <h3>
+                Follow me
+            </h3>
+            <p>
+                Lorem ipsum dolor amet cronut intelligentsia ugh banjo YOLO raclette portland craft beer.
+            </p>
+            <button class="follow-botton">
+                Follow
+            </button>
+        </aside>
+        <div class="flex-container">
+            <header class="column-content">
+                <h1>
+                    Sommerferie i Jotunheimen nasjonalpark
+                </h1>
+                <section>
+                        Lorem ipsum dolor amet cronut intelligentsia ugh banjo YOLO raclette portland craft beer. Aesthetic banjo snackwave, flannel farm-to-table live-edge blog semiotics. 
+                </section>
+            </header>
+            <aside class="column-content">
+                <div class="profile-picture">
+                    <img src="2_5_1 checkpoint/author.jpg" class="profile-picture" alt="Profile picture of Magnus" />
+                </div>
+                Magnus Skaalsveen
+            </aside>
+            <article>
+                <figure class="column-content">
+                    <img src="./2_5_1 checkpoint/top-image.jpg" alt="Nature photo picturing a mountain scene" />
+                    <figcaption>
+                            (Foto: Magnus Skaalsveen) En hytte ved Bygdin tidlig på morgenen.
+                    </figcaption>
+                </figure>
+                <section class="column-content">
+                    <p>
+                        Green juice tacos affogato salvia single-origin coffee brunch ennui vinyl cold-pressed air plant paleo DIY raw denim. Occupy kogi thundercats normcore coloring book, franzen paleo pinterest etsy schlitz artisan retro vexillologist yuccie. Taiyaki edison bulb mustache, iPhone VHS tattooed hot chicken williamsburg semiotics roof party trust fund single-origin coffee.
+                    </p>
+                    <p>
+                        Hot chicken kogi food truck truffaut. 
+                        <a href=""> 
+                            Adaptogen pinterest squid 
+                        </a>
+                        intelligentsia activated charcoal meggings beard pabst iPhone succulents chartreuse snackwave gentrify bushwick live-edge. Cliche affogato literally, truffaut shaman quinoa pork belly vice unicorn godard shoreditch yr copper mug hoodie. Four loko taiyaki freegan ugh. Photo booth echo park fixie VHS dreamcatcher irony tattooed lomo.
+                    </p>
+                    <p>
+                        Vice jianbing air plant, fanny pack twee raw denim pour-over migas pickled knausgaard raclette kombucha wayfarers. Typewriter hoodie glossier trust fund. Lomo asymmetrical pork belly you probably haven’t heard of them. Viral kale chips hot chicken bicycle rights poutine thundercats. Roof party flannel 90’s hashtag, hella +1 blue bottle distillery portland Austin cardigan tote bag wayfarers. Wolf asymmetrical sustainable fam, bushwick echo park selfies crucifix distillery schlitz put a bird on it.
+                    </p>
+                </section>
+                <figure>
+                    <img class="panorama-content" src="./2_5_1 checkpoint/panorama.jpg" alt="Panorama photo picturing a mountain scene" />
+                    <figcaption class="column-content panorama-caption">
+                        (Foto: Magnus Skaalsveen) Utsikt på turen mellom Olavsbu og Gjendebu
+                    </figcaption>
+                </figure>
+                <section class="column-content">
+                    <p>
+                        Chambray humblebrag blue bottle marfa pinterest trust fund butcher unicorn literally. Gochujang hashtag messenger bag la croix. Slow-carb before they sold out synth organic seitan. Blue bottle retro lyft tofu cold-pressed. Occupy celiac blog fixie blue bottle knausgaard. Sartorial freegan wolf distillery put a bird on it, literally palo santo hoodie.
+                    </p>
+                    <p>
+                        Chicharrones adaptogen ramps 8-bit twee af. Pinterest edison bulb man bun truffaut typewriter, knausgaard flexitarian schlitz 90's plaid sriracha photo booth blog glossier cold-pressed. Tumblr locavore squid, mustache venmo meggings kickstarter bushwick pour-over pitchfork yuccie adaptogen single-origin coffee. Ugh blog sriracha tumeric, adaptogen swag raclette yr pork belly lomo.
+                    </p>
+                </section>
+            </article>
+            <footer class="column-content">
+                <div class="icon-item">
+                    <label for="favorite" id="label-favorite" class="label">
+                        My favorite
+                    </label>
+                    <input class="checkbox" type="checkbox" id="favorite"/>
+                    <div class="icon-background favoriteimage">
+                    </div>
+                </div>
+                <div class="icon-item">
+                    <label for="share" id="label-share" class="label">
+                        My favorite
+                    </label>
+                    <input class="checkbox" type="checkbox" id="share"/>
+                    <div class="icon-background shareimage">
+                    </div>
+                </div>
+                <div class="icon-item">
+                    <label for="comment" id="label-comment" class="label">
+                        My favorite
+                    </label>
+                    <input class="checkbox" type="checkbox" id="comment"/>
+                    <div class="icon-background commentimage">
+                    </div>
+                </div>
+            </footer>
+        </div>  
+        <script>
+            // Set the number of pixels scrolled.
+            function listener(){
+                if (document.scrollingElement.scrollTop>270){
+                    document.getElementsByClassName("follow-me")[0].classList.add('visible');
+                }
+                if(document.scrollingElement.scrollTop<270){
+                    document.getElementsByClassName("follow-me")[0].classList.remove('visible');
+                }
+            }
+            window.addEventListener("scroll", listener);       
+        </script>
+    </body>
+</html>

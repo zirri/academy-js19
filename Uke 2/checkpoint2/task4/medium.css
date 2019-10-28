@@ -1,0 +1,190 @@
+body{
+    /* Har ikke installert Helvetica Neue og fant den på google fonts
+    som ilgnet mest på Helvetica Neue */
+    font-family: 'Roboto', sans-serif;
+    height: 2406px;
+}
+
+img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top:0;
+}
+
+.column-content{
+    width: 90%;
+    max-width: 650px;
+    padding: 1.5rem;
+}
+
+a{
+    color: #604300;
+    text-decoration-line: underline;
+}
+
+h3{
+    font-weight: bold;
+}
+
+/* aside follow-me */
+.follow-me{
+    width: calc((85% - 650px) / 2);  
+    min-width: 200px;
+    height: 150px;
+    position: sticky;
+    left: 5%;
+    top: 3rem;
+    z-index: 5;
+    visibility: hidden;
+    float: left;
+}
+
+.visible{
+    visibility: visible;
+}
+
+button {
+    color:hsl(160, 55%, 51%);
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+button:hover {
+    transform: scale(1.2);
+}
+
+/* Header */
+h1{
+    font-size: 3rem;
+    padding: 3rem 0;
+}
+
+header {
+    font-size: 1.2rem;
+}
+
+header h1{
+    padding-top: 1.5rem;
+}
+
+/* aside profile*/
+.profile-picture{
+    width: 61.5px;
+    height: 61.5px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* article */
+article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    padding: 0.5rem 0;
+}
+
+.panorama-content{
+    margin-top:1.5rem;
+    width: 100%;
+}
+
+.panorama-caption{
+    margin: 0 auto;
+}
+
+figcaption{
+    font-style: italic;
+}
+
+/* footer */
+.icon-item{
+    display: inline-block;
+    width: 57px;
+    height: 57px;
+    margin-right: 40px;
+    border: 1px black solid;
+    border-radius: 5px;
+}
+
+.icon-item:hover {
+    transform: scale(1.2);
+}
+
+.icon-background{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top:-72px;
+    z-index: -1;
+}
+
+.favoriteimage{
+    background-image: url("./2_5_1 checkpoint/favorite_border-24px.svg");
+    background-size: cover;
+}
+
+.shareimage{
+    background-image: url("./2_5_1 checkpoint/favorite_border-24px.svg");
+    background-size: cover;
+}
+
+.commentimage{
+    background-image: url("./2_5_1 checkpoint/favorite_border-24px.svg");
+    background-size: cover;
+}
+
+.label{
+    display: inline-block;
+    width:100%;
+    height:100%;
+    opacity: 0;
+}
+
+#favorite {
+    visibility: hidden;
+}
+
+#favorite:checked ~ .favoriteimage{
+    background-image: url("./2_5_1 checkpoint/favorite-24px.svg");
+}
+
+#share {
+    visibility: hidden;
+}
+
+#share:checked ~ .shareimage{
+    background-image: url("./2_5_1 checkpoint/favorite-24px.svg");
+}
+
+#comment {
+    visibility: hidden;
+}
+
+#comment:checked ~ .commentimage{
+    background-image: url("./2_5_1 checkpoint/favorite-24px.svg");
+}
+
+@media only screen and (max-width: 1200px){
+    .follow-me{
+        position: static;
+        margin:auto;
+        padding-top:1rem;
+        height: auto;
+        width: 100%;
+        max-width: 650px;
+        visibility: visible ;
+    }
+    .flex-container{
+        position: static;
+    }
+}

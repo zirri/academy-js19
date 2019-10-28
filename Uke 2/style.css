@@ -1,0 +1,12 @@
+div{
+    width: 100px;
+    height: 500px;
+    margin: 10px;
+    background-color: darkorchid;
+}
+
+#sticky{
+    position: sticky;
+    top: 0;
+    background-color: darkblue;
+}

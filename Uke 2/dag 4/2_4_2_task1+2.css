@@ -1,0 +1,39 @@
+.box1{
+    height: 60px;
+    padding-top: 40px;
+    width: 100px;
+    background-color: pink;
+    margin: 100px;
+    transition: all 1s;
+    text-align: center;
+    
+}
+
+.box1:hover{
+    border-radius: 75px;
+    background-color: blue;
+    /* transform: scale(2); */
+    width: 200px;
+    transform: rotate3d(1, 1, 0, 270deg);
+    /* transform: rotateY(360deg);
+    transform: rotateX(360deg); */
+}
+
+.box1:active{
+    background-color: blue;
+}
+
+
+
+button{
+    margin: 100px;
+    transition: all 0.5s;  
+}
+
+button:hover{
+    transform: scale(1.1);
+}
+
+button:active{
+    transform: scale(0.7);
+}
