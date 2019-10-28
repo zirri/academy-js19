@@ -2,11 +2,10 @@
 document.getElementById("oppgaver").innerHTML += "<h2> Oppgave 1</h2>";
 
 function printItems(list){
-    var result = [];
     for(var i=0; i<list.length; i++){
         document.getElementById("oppgaver").innerHTML += list[i]+', ';
     }
-    return result;
+    return;
 }
 var myList = ['Harry', 'Snape', 'Dumbledore'];
 printItems(myList);
@@ -22,7 +21,7 @@ function sumItems(list){
    return sum
 }
 
-var myListNumbers = [1,2,3,4];
+var myListNumbers = [1,2,3,4,5];
 document.getElementById("oppgaver").innerHTML += '' +myListNumbers + '=>' +sumItems(myListNumbers);
 
 //Oppgave 2

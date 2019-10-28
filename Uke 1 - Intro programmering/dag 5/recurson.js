@@ -22,7 +22,7 @@ function repeat(str,n){
     }
 }
 
-writeHTML(repeat('x',6)+"<br>");
+writeHTML(repeat('hei',6)+"<br>");
 
 //oppgave 2
 writeTaskHeader();
@@ -43,8 +43,8 @@ writeHTML(printRange(25,72));
 writeTaskHeader();
 
 function exponent(base, exp){
-    if(exp==1){
-        return base
+    if(exp==0){
+        return 1
     }else{
         return base*exponent(base, exp-1)
     }

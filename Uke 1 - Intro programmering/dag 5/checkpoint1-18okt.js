@@ -74,7 +74,7 @@ function dearSanta(forbidden){
     if(forbidden.indexOf(wish)>0){
         return 'Santa: You\'ve been naughty this year and will only get coal in your stockings!'
     }else{
-        return 'You\'ve been nice this year and will get socks for Christmas!'
+        return 'Santa: You\'ve been nice this year and will get '+ wish +' for Christmas!'
     }
 }
 console.log(dearSanta(['Books', 'CAR','guitar','fancy dress']));

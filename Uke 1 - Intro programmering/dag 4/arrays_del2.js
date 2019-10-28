@@ -24,7 +24,7 @@ function mapDupliactesInArray(list){
     for (var i=0; i<list.length; i++){
         if(uniqueArray.indexOf(list[i])<0){
             uniqueArray.push(list[i]);
-        }else{
+        }else if (duplicatesArray.indexOf(list[i])<0){
             duplicatesArray.push(list[i])
         }
     }
