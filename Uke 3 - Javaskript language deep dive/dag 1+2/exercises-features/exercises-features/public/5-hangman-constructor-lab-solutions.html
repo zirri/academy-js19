@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hangman Lab</title>
+    <style type="text/css">
+        h2 span {
+            font-size: 4em;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            padding: 6px;
+            margin: 3px;
+        }
+
+        h2.notice {
+            font-size: 4em;
+            color: #0c0;
+        }
+
+        input[type=text] {
+            width: 1.5em;
+        }
+
+        .win {
+            background: #ffa;
+        }
+
+        .won {
+            background: #fff;
+        }
+
+        .win h2 {
+            color: #0c0;
+        }
+
+        #hangman {
+            border: 2px solid #ccc;
+            display: none;
+            padding: 10px 20px 30px;
+            width: 800px;
+            transition: background-color 1s;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript constructors</h1>
+    <div id="hangman">
+      <h1>Lav-risiko Hangman (ingen død fyr)</h1>
+      <h2></h2>
+      <form class="guess-letter">
+        <label for="letter">Foreslå bokstav:</label>
+        <input type="text" id="letter">
+      </form>
+    </div>
+
+    <script type="text/javascript" src="5-lab-solutions.js"></script>
+  </body>
+</html>
