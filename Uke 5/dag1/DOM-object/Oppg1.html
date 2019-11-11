@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main"></div>
+        <script>
+            var mainNode = document.getElementById('main');
+            var headingNode = document.createElement('h1');
+            headingNode.innerHTML = "Heading";
+            
+            var paragraphText = document.createTextNode("Hello world");
+            var paragraphNode = document.createElement('p');
+            paragraphNode.appendChild(paragraphText);
+            mainNode.append(headingNode, paragraphNode)
+        </script>
+    </body>
+</html>

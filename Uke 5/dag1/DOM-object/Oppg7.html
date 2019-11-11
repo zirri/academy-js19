@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main">
+            <h1>Nyheter</h1>
+            <h2>Fra norske kilder</h2>
+            <ul>
+                <li>
+                    <a href="https://www.vg.no">vg.no</a>
+                </li>
+                <li>
+                    <a href="https://www.db.no">dagbladet.no</a>
+                </li>
+                <li>
+                    <a href="https://www.nrk.no">nrk.no</a>
+                </li>
+                <li>
+                    <a href="https://www.afterposten.no">aftenposten.no</a>
+                </li>
+            </ul>
+        </div>
+        <script>
+            function createLinkElement(linkText, linkAddr){
+                let newListItem = document.createElement('li');
+                let newA = document.createElement('a');
+                newListItem.appendChild(newA);
+                newA.setAttribute('href', linkAddr)
+                let link = document.createTextNode(linkText);
+                newA.appendChild(link);
+                return newListItem
+            }
+
+            let listNode = document.querySelector('ul');
+            let firstListItem = document.querySelector('li');
+            let newListItem = createLinkElement('tv2.no', 'www.tv2.no');
+            listNode.insertBefore(newListItem, firstListItem);
+            listNode.removeChild(listNode.children[listNode.children.length-1]);
+            let secondNewItem = createLinkElement('e24.no', 'www.e24.no');
+            listNode.appendChild(secondNewItem)
+            let thirdListItem = createLinkElement('addressa.no', 'www.adresseavisen.no');
+            listNode.insertBefore(thirdListItem, firstListItem);
+        </script>
+    </body>
+</html>

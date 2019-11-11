@@ -1,13 +1,10 @@
 
 function printTaskNumber(str){
-    document.getElementById("input").innerHTML += "<hr/><strong> Oppgave: "+ str +"</strong><br/>";
+    console.log("Oppgave: "+ str)
 }
 
-function print(str){
-    document.getElementById("input").innerHTML += str+"<br/>";
-}
 
-// printTaskNumber(1);
+// console.logTaskNumber(1);
 
 // // Oppgave 1
 // function makeCounter1(initial){
@@ -31,16 +28,16 @@ function print(str){
 
 // var counter1 = makeCounter1(10);
 // counter1.increment();
-// print(counter1.getValue());  
+// console.log(counter1.getValue());  
 // counter1.decrement();
 // counter1.decrement();
-// print(counter1.getValue());  
+// console.log(counter1.getValue());  
 // counter1.reset();
-// print(counter1.getValue()); 
+// console.log(counter1.getValue()); 
 
 
 // //Oppgave 2 - header
-// printTaskNumber(2);
+// console.logTaskNumber(2);
 
 // // Oppgave 2
 // function makeCounter2(initial){
@@ -63,17 +60,17 @@ function print(str){
 
 // var counter2 = makeCounter2(10);
 // counter2.increment();
-// print(counter2.getValue());  
+// console.log(counter2.getValue());  
 // counter2.decrement();
 // counter2.decrement();
-// print(counter2.getValue());  
+// console.log(counter2.getValue());  
 // counter2.reset(20);
-// print(counter2.getValue()); 
+// console.log(counter2.getValue()); 
 // counter2.increment();
-// print(counter2.getValue());  
+// console.log(counter2.getValue());  
 
 // //Oppgave 3 - header
-// printTaskNumber(3);
+// console.logTaskNumber(3);
 
 // // Oppgave 3
 // function makeCounter3(initial, step){
@@ -96,15 +93,15 @@ function print(str){
 
 // var counter3 = makeCounter3(0,5);
 // counter3.increment();
-// print(counter3.getValue());  
+// console.log(counter3.getValue());  
 // counter3.decrement();
 // counter3.decrement();
-// print(counter3.getValue());  
+// console.log(counter3.getValue());  
 // counter3.reset(20);
-// print(counter3.getValue()); 
+// console.log(counter3.getValue()); 
 
 // //Oppgave 4 - header
-// printTaskNumber(4);
+// console.logTaskNumber(4);
 
 // // Oppgave 4
 
@@ -129,13 +126,13 @@ function print(str){
 
 // var account1 = createAccount1();
 // account1.deposit(100);
-// print(account1.getBalance());  
+// console.log(account1.getBalance());  
 // account1.withdraw(50);  
 // account1.withdraw(100); 
-// print(account1.getBalance());  
+// console.log(account1.getBalance());  
 
 // //Oppgave 5 - header
-// printTaskNumber(5);
+// console.logTaskNumber(5);
 
 // // Oppgave 5
 // function createAccount2(accountpin){
@@ -145,7 +142,7 @@ function print(str){
 //             if(pin===accountpin){
 //                 amount += funds;
 //             }else{
-//                 print("wrong pin code!")
+//                 console.log("wrong pin code!")
 //             }
 //         },
 //         withdraw: function(funds, pin){
@@ -156,7 +153,7 @@ function print(str){
 //                     console.log("Insufficient funds!");
 //                 }
 //             }else{
-//                 print("wrong pin code!")
+//                 console.log("wrong pin code!")
 //             }
 //         },
 //         getBalance(pin){
@@ -168,14 +165,14 @@ function print(str){
 // var account2 = createAccount2("4332")
 // account2.deposit(100, "0000");  
 // account2.deposit(100,"4332");
-// print(account2.getBalance("4332"));    
+// console.log(account2.getBalance("4332"));    
 // account2.withdraw(60,"0000");  
 // account2.withdraw(60, "4332");  
-// print(account2.getBalance());          
+// console.log(account2.getBalance());          
 
 
 //Oppgave 6 - header
-//printTaskNumber(6);
+//console.logTaskNumber(6);
 
 // Oppgave 6
 // function createAccounts3(accountpin){
@@ -185,7 +182,7 @@ function print(str){
 //         if(pin === accountpin){
 //             return true;
 //         }else{
-//             print("Wrong pin code!")
+//             console.log("Wrong pin code!")
 //             return false
 //         }
 //     }
@@ -222,7 +219,7 @@ function print(str){
 //                 if (funds <=accounts[account]){
 //                     accounts[account] -= funds;
 //                 }else{
-//                     print("Insufficient funds!");
+//                     console.log("Insufficient funds!");
 //                 }
 //             }
 //         },
@@ -231,12 +228,12 @@ function print(str){
 // var accounts3 = createAccounts3("4332");
 // accounts3.addAccount("savings", "4332"); 
 // accounts3.addAccount("checking", "4332");
-// print(accounts3.getAccounts("4332")); 
-// print(accounts3.getBalances("4332")); 
+// console.log(accounts3.getAccounts("4332")); 
+// console.log(accounts3.getBalances("4332")); 
 // accounts3.deposit("savings", 100, "4332");
 // accounts3.withdraw("savings", 20, "4332"); 
-// print(accounts3.getBalances("4332")); 
-// print(accounts3.getBalance("savings", "4332"));
+// console.log(accounts3.getBalances("4332")); 
+// console.log(accounts3.getBalance("savings", "4332"));
 
 //Oppgave 7 - header
 printTaskNumber(7);
@@ -250,7 +247,7 @@ function createAccounts3(accountpin){
         if(pin === accountpin){
             return true;
         }else{
-            print("Wrong pin code!")
+            console.log("Wrong pin code!")
             return false
         }
     }
@@ -290,7 +287,7 @@ function createAccounts3(accountpin){
                     accounts[account] -= funds;
                     log.push({action: "withdraw", to: account, amount: funds});
                 }else{
-                    print("Insufficient funds!");
+                    console.log("Insufficient funds!");
                 }
             }
         },
@@ -305,10 +302,10 @@ function createAccounts3(accountpin){
 var accounts3 = createAccounts3("4332");
 accounts3.addAccount("savings", "4332"); 
 accounts3.addAccount("checking", "4332");
-print(accounts3.getAccounts("4332")); 
-print(accounts3.getBalances("4332")); 
+console.log(accounts3.getAccounts("4332")); 
+console.log(accounts3.getBalances("4332")); 
 accounts3.deposit("savings", 100, "4332");
 accounts3.withdraw("savings", 20, "4332"); 
-print(accounts3.getBalances("4332")); 
-print(accounts3.getBalance("savings", "4332"));
-print(accounts3.getActivity("4332"));
+console.log(accounts3.getBalances("4332")); 
+console.log(accounts3.getBalance("savings", "4332"));
+console.log(accounts3.getActivity("4332"));

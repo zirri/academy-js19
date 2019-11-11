@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main">
+            <h1 id="heading">Heading</h1>
+            <h2 id="subheading">Subheading</h2>
+            <ul class="itemlist">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+        </div>
+
+        <script>
+            function addListItem(parent, item){
+                let newItem = document.createTextNode(item);
+                let newListItem = document.createElement('li');
+                parent.appendChild(newListItem);
+                newListItem.appendChild(newItem);
+            }
+            
+            let headingNode = document.querySelector('#heading');
+            let subheadingNode = document.querySelector('#subheading');
+            let listNode = document.querySelector('.itemlist');
+            
+            headingNode.innerHTML = 'Quiddich news';
+            subheadingNode.innerHTML = 'Brooms on fire';
+            addListItem(listNode, 'Snitch');
+            addListItem(listNode, 'Robe');
+
+            let listNodeAll = document.querySelectorAll('li');
+            console.log(listNodeAll);
+            let reversedListNode = Array.from(listNodeAll).reverse();
+            listNode.append(...reversedListNode);
+
+        </script>
+    </body>
+</html>

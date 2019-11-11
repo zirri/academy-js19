@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main">
+        <script>
+                let mainNode = document.querySelector('#main');
+                let square = document.createElement('div');
+                square.style.height = '50px';
+                square.style.width = '50px';
+                square.style.backgroundColor = 'blue';
+                square.style.position = 'absolute';
+                square.style.top = '10px';
+                square.style.left = '10px';
+                mainNode.appendChild(square);
+                let margin = 0;
+                let goingLeft = true;
+                
+                setInterval(()=>{
+                    if(goingLeft){
+                        margin +=5;
+                        square.style.marginLeft=margin+'px';
+                        if(margin>500){
+                            goingLeft = false;
+                        }
+                    }else{
+                        margin -=5;
+                        square.style.marginLeft=margin+'px';
+                        if(margin<0){
+                            goingLeft = true;
+                        }
+                    }
+                }, 10 ,margin);
+        </script>
+    </body>
+</html> 

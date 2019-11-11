@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main"></div>
+        <script>
+           let mainNode = document.querySelector('#main');
+           let links = {
+               'vg.no': 'https://www.vg.no',
+               'dagbladet.no': 'https://www.db.no',
+               'nrk.no': 'https://www.nrk.no',
+               'aftenposten.no': 'https://www.aftenposten.no',
+           };
+
+           let headingNode = document.createElement('h1');
+           let headingText = document.createTextNode('Nyheter');
+           headingNode.appendChild(headingText);
+
+           let subheadingNode = document.createElement('h2');
+           let subheadingText = document.createTextNode('Fra norske kilder');
+           subheadingNode.appendChild(subheadingText);
+
+           let listNode = document.createElement('ul');
+
+           for(addr in links){
+               let listItem = document.createElement('li');
+               let link = document.createElement('a');
+               let linkAddress = document.createTextNode(addr);
+               link.setAttribute('href', links[addr]);
+               link.appendChild(linkAddress);
+               listItem.appendChild(link);
+               listNode.appendChild(listItem);
+           }
+
+           mainNode.append(headingNode, subheadingNode, listNode);
+        </script>
+    </body>
+</html>

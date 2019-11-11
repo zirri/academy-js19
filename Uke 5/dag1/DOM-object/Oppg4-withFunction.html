@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main"></div>
+        <script>
+            function makeChild(tag, content, parent){
+                let newNode = document.createElement(tag);
+                if(content){
+                    let contentText = document.createTextNode(content);
+                    newNode.appendChild(contentText);
+                }
+                parent.appendChild(newNode);
+                return newNode
+            };
+
+            let news = [
+                {
+                    imgSrc: 'https://gfx.nrk.no/RQuT5S6N_k0hBKQ2ldhE6AZ_ztdOPcHhyq88JWTM33Ng.jpg',
+                    href: 'https://www.vg.no',
+                    title: 'Woody Allen inngikk forlik med Amazon'
+                },
+                {
+                    imgSrc: 'https://gfx.nrk.no/72Mx3Ozh03bdT-V9XR0UBgjKmPNcQ5Jw3TbZkFeAQfNg.jpg',
+                    href: 'https://www.vg.no',
+                    title: 'Dæven søkke dette var bra'
+                }
+            ];
+
+            let mainNode = document.querySelector('#main');
+            
+            let headerNode = makeChild('h1','Film og spillnyheter',mainNode);
+            let subheaderNode = makeChild('h2','Fra nrk.no',mainNode);
+            let listNode = makeChild('ul','', mainNode);
+
+            for(let i=0; i<news.length;i++){
+                let listItem = makeChild('li','', listNode);
+
+                let imgNode = makeChild('img','', listItem);
+                imgNode.setAttribute('src', news[i].imgSrc);
+
+                let aNode = makeChild('a','', listItem);
+                aNode.setAttribute('href', news[i].href);
+                let linkTextStyle = makeChild('h3',news[i].title, aNode);
+            }
+
+            mainNode.append(headerNode, subheaderNode, listNode);
+        </script>
+    </body>
+</html>

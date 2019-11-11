@@ -1,0 +1,87 @@
+body{
+    /* Har ikke installert Helvetica Neue og fant den på google fonts
+    som ilgnet mest på Helvetica Neue */
+    font-family: 'Roboto', sans-serif;
+    height: 2406px;
+    font-size: 1.3rem;
+}
+
+img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.column-content{
+    width: 90%;
+    max-width: 800px;
+    padding: 0;
+}
+
+a{
+    color: #604300;
+    text-decoration-line: underline;
+}
+
+/* Header */
+h1{
+    font-size: 3rem;
+    padding: 1.5rem 0;
+}
+
+header {
+    font-size: 1.3rem;
+}
+
+header h1{
+    padding-top: 1.5rem;
+}
+
+/* aside */
+.profile-picture{
+    width: 61.5px;
+    height: 61.5px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* article */
+article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p {
+    padding: 0 0;
+}
+
+
+figcaption{
+    font-style: italic;
+}
+
+/* footer */
+.icon-item{
+    display: inline-block;
+    width: 27px;
+    height: 27px;
+    margin-right: 40px;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 10px;
+    /* transition: 0.2s; */
+}
+
+.icon-item:hover {
+    transform: scale(1.2);
+}
+    
+.last-picture{
+    margin-top: 100px;
+}
