@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main">
+            <h1 id="heading">Heading</h1>
+            <h2 id="subheading">Subheading</h2>
+            <button>Vote for more items!</button>
+            <ul class="itemlist">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+            
+        </div>
+        <script>
+            let listNode = document.querySelector('.itemlist');
+            let buttonNode = document.querySelector('button');
+
+            listNode.addEventListener('click', function(event){
+                var elementClicked = event.target;
+                listNode.removeChild(elementClicked);
+            });
+
+            
+            buttonNode.addEventListener('click', function(event){
+                let newItem = document.createElement('li');
+                let newText = document.createTextNode('Item '+ (listNode.children.length+1));
+                newItem.appendChild(newText)
+                listNode.appendChild(newItem);
+            })
+        </script>
+    </body>
+</html>
+

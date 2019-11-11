@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main">
+            <h1 id="heading">Heading</h1>
+            <h2 id="subheading">Subheading</h2>
+            <button>Click me</button>
+            <ul class="itemlist">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+            </ul>
+        </div>
+        <script>
+            let listNode = document.querySelector('.itemlist');
+            let listNodeItems = document.querySelectorAll('li');
+            let buttonNode = document.querySelector('button');
+
+            listNode.addEventListener('click',(event) =>{
+                let elementClicked = event.target;
+                elementClicked.style.color = `rgb(${Math.random()*256},${Math.random()*256},${Math.random()*256})`;
+            })
+
+            buttonNode.addEventListener('click',(event) =>{
+                listNodeItems.forEach(item => item.style.color = 'black');
+            })
+        </script>
+    </body>
+</html>
