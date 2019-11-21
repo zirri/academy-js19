@@ -1,0 +1,105 @@
+/*Variabler*/
+$color-red: red;
+$color-purple: purple;
+$color-blue: blue;
+$color-white: #fff;
+$color-lightgrey: #c2c2c2;
+$color-grey: grey;
+$color-darkgrey: #333;
+$color-black: #000;
+
+/*Oppg 1a*/
+.foo{
+    color: $color-red;
+
+    &:hover{
+        color: $color-blue;
+    }
+}
+
+/*Oppg 1b*/
+a {
+    &.red-text{
+        color: $color-red;
+    }
+
+    &.blue-text{
+        color: $color-blue;
+    }
+}
+
+/*Oppg 1c*/
+p{
+    color: $color-lightgrey;
+}
+
+h1{
+    color: $color-lightgrey;
+    font-size: 36px;
+}
+
+/*Oppg 1d*/
+.content-box{
+    @mixin color-scheme($color1, $color2){
+        color: $color1;
+        background-color: $color2;    
+    }
+
+    @include color-scheme($color-darkgrey, $color-white);
+
+    &.inverse{
+        @include color-scheme($color-white, $color-darkgrey);
+    }
+}
+
+/*Oppg 1e*/
+$box-width: 100px;
+
+.container{
+    color:$color-grey;
+
+    .box{
+        
+        width: $box-width;
+        
+        .wide-box{
+            width: 2*$box-width;
+        }
+    }
+
+    a{
+        color: $color-purple;
+
+        &:hover{
+            color: $color-red;
+        }
+    }
+}
+
+/*Oppg 1f*/
+
+h1{
+    margin-bottom: 48px;
+    font-size: 64px;
+
+    .title{
+        color: $color-grey;
+    }
+
+    .aside{
+        color: $color-black;
+    }
+}
+
+h2{
+    margin-bottom: 16px;
+    font-size: 32px;
+
+    .title{
+        color: $color-grey;
+    }
+
+    .aside{
+        color: $color-black;
+    }
+}

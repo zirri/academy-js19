@@ -1,0 +1,32 @@
+p {
+  font-size: 2rem;
+}
+
+.dark {
+  width: 100px;
+  height: 100px;
+  background-color: grey;
+  color: white;
+}
+.dark p {
+  background-color: white;
+}
+
+.light {
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
+.light p {
+  background-color: grey;
+  color: white;
+}
+
+a {
+  color: pink;
+}
+a:hover {
+  color: blue;
+}
+
+/*# sourceMappingURL=demo.css.map */

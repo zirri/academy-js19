@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Oppgave 5</title>
+    </head>
+    <body>
+        <div id="main">
+
+        </div>
+        <script>
+             function addElement(parentNode, tag, text){
+                let newElement = document.createElement(tag);
+                if(text){
+                    let textNode = document.createTextNode(text);
+                    newElement.append(textNode)
+                }
+                parentNode.appendChild(newElement);
+                return newElement;
+            };
+
+            //define choices
+            let colors = ['red','blue','green','yellow'];
+            let form = ['square', 'circle'];
+
+            //get Nodes
+            let mainNode = document.querySelector('#main');
+
+            //add html elements
+            let pickColor = addElement(mainNode, 'select', '');
+            let pickForm = addElement(mainNode, 'select', '');
+            let makeButton = addElement(mainNode, 'button','Make new element');
+            let container = addElement(mainNode, 'div', '');
+            colors.forEach(item => {
+                let newElement = addElement(pickColor,'option',item);
+                newElement.setAttribute('value', item.toLowerCase())
+            });
+            form.forEach(item => {
+                let newElement = addElement(pickForm,'option',item);
+                newElement.setAttribute('value', item.toLowerCase())
+            });
+            
+            makeButton.addEventListener('click', event =>{
+                let color = pickColor.value;
+                let form = pickForm.value;
+                let newElement = addElement(container, 'div', '');
+                newElement.style.backgroundColor = color;
+                newElement.style.height = '50px';
+                newElement.style.width = '50px';
+                if(form == 'circle'){
+                    newElement.style.borderRadius = '25px'
+                }
+            });
+
+            container.addEventListener('click', event =>{
+                let removeElement = event.target;
+                container.removeChild(removeElement);
+            });
+        </script>
+    </body>
+</html>

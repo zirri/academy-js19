@@ -1,0 +1,38 @@
+$font-size: 2rem;
+$dark-color: grey;
+$light-color: white;
+
+
+p{
+    font-size: $font-size;
+}
+
+.dark{
+    width:100px;
+    height:100px;
+    background-color: $dark-color;
+    color:$light-color;
+
+    p{
+        background-color: $light-color;
+    }
+}
+
+.light{
+    width:100px;
+    height:100px;
+    background-color: $light-color;
+
+    p{
+        background-color: $dark-color;
+        color:$light-color;
+    }
+}
+
+a{
+    color: pink;
+
+    &:hover{
+        color:blue;
+    }
+}

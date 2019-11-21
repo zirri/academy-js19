@@ -1,0 +1,78 @@
+/*Variabler*/
+/*Oppg 1a*/
+.foo {
+  color: red;
+}
+.foo:hover {
+  color: blue;
+}
+
+/*Oppg 1b*/
+a.red-text {
+  color: red;
+}
+a.blue-text {
+  color: blue;
+}
+
+/*Oppg 1c*/
+p {
+  color: #c2c2c2;
+}
+
+h1 {
+  color: #c2c2c2;
+  font-size: 36px;
+}
+
+/*Oppg 1d*/
+.content-box {
+  color: #333;
+  background-color: #fff;
+}
+.content-box.inverse {
+  color: #fff;
+  background-color: #333;
+}
+
+/*Oppg 1e*/
+.container {
+  color: grey;
+}
+.container .box {
+  width: 100px;
+}
+.container .box .wide-box {
+  width: 200px;
+}
+.container a {
+  color: purple;
+}
+.container a:hover {
+  color: red;
+}
+
+/*Oppg 1f*/
+h1 {
+  margin-bottom: 48px;
+  font-size: 64px;
+}
+h1 .title {
+  color: grey;
+}
+h1 .aside {
+  color: #000;
+}
+
+h2 {
+  margin-bottom: 16px;
+  font-size: 32px;
+}
+h2 .title {
+  color: grey;
+}
+h2 .aside {
+  color: #000;
+}
+
+/*# sourceMappingURL=oppg.css.map */

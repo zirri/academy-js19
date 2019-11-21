@@ -1,0 +1,49 @@
+$color-pink: #F82C7A;
+$color-orange: #FF9755;
+$color-purple: #D753DD;
+
+$background-color: black;
+
+$base-font-family: Arial, sans-serif;
+$title-font-family: Arial, sans-serif;
+$base-font-size: 1rem;
+
+
+/*Basics*/
+html{
+    font-size: $base-font-size;
+}
+
+body{
+    font-family: $base-font-family;
+}
+
+/*Headers*/
+h1 {
+    font-family: $title-font-family;
+    font-size: 2* $base-font-size;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-family: $title-font-family;
+    font-size: 1.5* $base-font-size;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-family: $title-font-family;
+    font-size: 1.2* $base-font-size;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-family: $title-font-family;
+    font-size: 1* $base-font-size;
+    font-weight: bolder;
+}
+
+

@@ -33,14 +33,13 @@
             }
 
             let listNode = document.querySelector('ul');
-            let firstListItem = document.querySelector('li');
             let newListItem = createLinkElement('tv2.no', 'www.tv2.no');
-            listNode.insertBefore(newListItem, firstListItem);
+            listNode.insertBefore(newListItem, listNode.children[0]);
             listNode.removeChild(listNode.children[listNode.children.length-1]);
             let secondNewItem = createLinkElement('e24.no', 'www.e24.no');
             listNode.appendChild(secondNewItem)
             let thirdListItem = createLinkElement('addressa.no', 'www.adresseavisen.no');
-            listNode.insertBefore(thirdListItem, firstListItem);
+            listNode.insertBefore(thirdListItem, listNode.children[1]);
         </script>
     </body>
 </html>

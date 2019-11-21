@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Oppgave 6</title>
+    </head>
+    <body>
+        <div id="main">
+
+        </div>
+        <script>
+          function addElement(parentNode, tag, text){
+                let newElement = document.createElement(tag);
+                if(text){
+                    let textNode = document.createTextNode(text);
+                    newElement.append(textNode)
+                }
+                parentNode.appendChild(newElement);
+                return newElement;
+            };
+
+            //Display current size
+            let mainNode = document.querySelector('#main');
+            let viewSizes = addElement(mainNode, 'div', 'Current size of window: ');
+            let windowSize = addElement(viewSizes,'div',`width = ${window.innerWidth}px, height = ${window.innerHeight}px`);
+            viewSizes.append('\n Scroll position: ')
+            let scrollView = addElement(viewSizes,'div','0%');
+
+            //Responsive
+            window.addEventListener('resize', event => {
+                windowSize.innerHTML = `width = ${window.innerWidth}px, height = ${window.innerHeight}px`;
+            });
+
+            //set page 10000px heigh
+            mainNode.style.height = '10000px';
+            viewSizes.style.position = 'fixed';
+            viewSizes.style.top = '0px';
+            mainNode.style.backgroundColor = `rgba(200,0,150,0.3)`;
+            
+            window.addEventListener('scroll', event => {
+                let position = document.scrollingElement.scrollTop;
+                scrollView.innerHTML = parseInt(position/(10000-window.innerHeight)*100)+' %';
+                mainNode.style.backgroundColor = `rgba(200,0,150,${0.7*(position/(10000-window.innerHeight))+0.3})`;
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+Oppgave 1:
+
+DOM står for Document Object Model og kan gi oss alle HTML-elementer som javascript-objekter. DOM er dermed et API (grensesnitt) som gir javaskript tilgang til HTML-elementer, for bl.a. å lese, skrive og flytte dem. Man kan f.eks. lese ut alle div-elementer på HTML siden til en node-liste ved å bruke:
+    let divList = document.querySelectorAll('div');
+Deretter kan man modifisere lista, man kan hente ut et element og legge til "child" (som vil være et nytt element inne i den spesifikke div-en) og man kan skrive til dette elementet. Dersom vi vil legge inn en tekst til slutt i første div-en kan det gjøres på følgende måte:
+    let newTextNode = document.createTextNode('New text on my site');
+    let firstDiv = divList.item(0);
+    firstDiv.append(newTextNode);
+
+
+Oppgave 2:
+
+1: var element = document.getElementById("submit-button");
+2: element.addEventListner("click", onSubmitHandler):
+
+Den første linja henter ut det HTML-elementet som har ID "submit-button" og lagrer en referanse til dette i variabelen element. To elementer skal ikke ha samme id i HTML, så her bør du få ett unikt element.
+
+Den andre linja lager en eventListner som lytter etter eventer tilknyttet element-noden (knappen vår). I dette tilfellet lytter eventlisteneren på en klikk-event. Så når noen klikker på knappen vil funksjonen "onSubmitHandler" kjøre. 
+
+Med : og ikke ; vil linje 2 strengt tatt gi syntaksfeil.
+
+
+Oppgave 3:
+
+En av fordelene med å designe på papir først er at det er enkelt og billig. Det er også veldig enkelt å endre f.eks å legge til elementer/beskrivelser eller endre flyten underveis i prosessen/testingen om det er nødvendig. Det er også veldig enkelt å bytte ut et view, uten at det berører noe mer. Og det vil være begrenset med tid og ressurser som er lagt ned i modellen, som gjør det enklere å kaste om ideen ikke har livets rett.
+
+I tillegg vil det for testeren være helt opplagt at dette er en tidlig fase, så det er enklere å få tilbakemelding på det vi ønsker. Når vi ønsker innspill på konsept og funksjonalitet uten at de skal henge seg opp i ting som ennå ikke er ferdig vil en papir-prototype helt klart også formidle dette til brukeren.
+
+
+Oppgave 4:
+
+Guerilla testing er når man går ut på gata og spør tilfeldige forbipasserende om å teste produktet vårt. Fordelen er at man kan få veldig mange tester, det koster relativt lite tid og ressurser, og man når potensielt fram til folk man ellers ikke får til å treffe. Man er også avhengig av at det man vil teste er enkelt og lett å forstå. Ulempene er at man ikke kan bruke mye tid, vi vil alltid være tilstede og kunne påvirke testpersonen, og man kan også risikere at mange ikke ønsker å bistå. Avhengig av hvor/når man tester kan man også få en veldig homogen gruppe.
+
+Lab testing er når man har en lab der brukeren kommer inn og tester produktet. Denne typen test kan væer mer omfattende og ta mer tid. Man kan også sette brukeren inn i en setting som ligner der man ønsker at produktet skal bli brukt. Man kan også ha mye mer tid til rådighet. Jeg tenker at også her er det viktig å være bevisst så man ikke får en for homogen testgruppe (f.eks. bare de som er villige til å bruke av fritiden sin). Man kan til gjengeld la brukeren teste uten påvirkning fra oss, og man kan få testet ting som er mer komplekse eller f.eks. krever noe opplæring før bruk. Denne typen testing vil ofte være mye mer ressurskrevende. 
+
+
+Oppgave 5:
+
+5 Whys: Man kan spørre why fem ganger på hvert svar man får og dermed grave dypere. Målet er å finne ut av de bakenforliggende behovene for brukerne. Dette er en metode som brukes i discover-fasen (idemyldring), og er et verktøy for brainstorming.
+
+I samme fase kan man også bruke skygging (shadowing). Dette er en metode der man skygger en bruker eller potensiell kunde over en gitt tid. Dette vil hjelp til å forstå brukeren og dennes behov i den aktuelle settingen produktet vårt faktisk skal brukes.
+
+Personas: Dette er en metode der man lager en fiktiv bruker. Man bygger opp en person med bakgrunn, interesser osv. slik at man kan føle at dette er en person men kan identifisere seg med. Dette brukes videre til å evaluere produktet/ideen for å se hvordan produktet passer til behovene til denne personen. Denne metoden brukes i define-fasen.
+
+Use-cases er et lignende verktøy som brukes i define-fasen. Dette går ut på å beskrive scenarioer der brukeren bruker vår løsning. Disse scenarionene skal ta for seg hele kjeden fra et behov dukker opp til man er ferdig med oppgaven man skulle gjøre. Man kan gjerne lage flere scenarioer som belyser flyten fra ulike perspektiver (ny bruker/eksisterende bruker, gammel/ung).

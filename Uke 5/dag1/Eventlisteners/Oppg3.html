@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main">
+        </div>
+        <script>
+            function addElement(parentNode, tag, text){
+                let newElement = document.createElement(tag);
+                if(text){
+                    let textNode = document.createTextNode(text);
+                    newElement.append(textNode)
+                }
+                parentNode.appendChild(newElement);
+                return newElement;
+            }
+
+            let mainNode = document.querySelector('#main');
+            
+            //add elements
+            let upButton = addElement(mainNode, 'button', 'Move up');
+            let downButton = addElement(mainNode, 'button', 'Move down');
+            let leftButton = addElement(mainNode, 'button', 'Move left');
+            let rightButton = addElement(mainNode, 'button', 'Move right');
+            let redBox = addElement(mainNode, 'div', '');
+            
+            //style elements
+            redBox.style.height = '20px';
+            redBox.style.width = '20px';
+            redBox.style.backgroundColor = 'red';
+            
+            let redboxLeftMargin = 1;
+            let redboxTopMargin = 1;
+            let step = 100;
+            redBox.style.marginLeft = redboxLeftMargin+'px';
+            redBox.style.marginTop = redboxTopMargin+'px';
+            let maxTopMargin = window.innerHeight-20-step;
+            let maxLeftMargin = window.innerWidth-20-step;
+
+            //add listeners
+            upButton.addEventListener('click', (event)=>{
+                if(redboxTopMargin>5){
+                    redboxTopMargin -= step;
+                    redBox.style.marginTop = redboxTopMargin+'px';
+                }
+            });
+
+            downButton.addEventListener('click', (event)=>{
+                if(redboxTopMargin<maxTopMargin){
+                    redboxTopMargin += step;
+                    redBox.style.marginTop = redboxTopMargin+'px';
+                }   
+            });
+
+            leftButton.addEventListener('click', (event)=>{
+                if(redboxLeftMargin>5){
+                    redboxLeftMargin -= step;
+                    redBox.style.marginLeft = redboxLeftMargin+'px';
+                }
+            });
+
+            rightButton.addEventListener('click', (event)=>{
+                if(redboxLeftMargin<maxLeftMargin){
+                    redboxLeftMargin += step;
+                    redBox.style.marginLeft = redboxLeftMargin+'px';
+                }
+            });
+
+        </script>
+    </body>
+</html>

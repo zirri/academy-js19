@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Solution</title>
+    </head>
+    <body>
+        <div id="main">
+        </div>
+        <script>
+            function addElement(parentNode, tag, text){
+                let newElement = document.createElement(tag);
+                if(text){
+                    let textNode = document.createTextNode(text);
+                    newElement.append(textNode)
+                }
+                parentNode.appendChild(newElement);
+                return newElement;
+            }
+
+            let mainNode = document.querySelector('#main');
+            
+            //add elements
+            let inputField = addElement(mainNode, 'input', '');
+            inputField.setAttribute('type', 'text');
+            let redBox = addElement(mainNode, 'div', '');
+            
+            
+            //style elements
+            redBox.style.height = '20px';
+            redBox.style.width = '20px';
+            redBox.style.backgroundColor = 'red';
+            
+            let redboxLeftMargin = 1;
+            let redboxTopMargin = 1;
+            let step = 100;
+            redBox.style.marginLeft = redboxLeftMargin+'px';
+            redBox.style.marginTop = redboxTopMargin+'px';
+    
+            //add listeners
+            inputField.addEventListener('blur', event => {
+                if(!isNaN(+inputField.value)){
+                    step = (+inputField.value);
+                } 
+            })
+
+            document.addEventListener('keydown', (event)=>{
+                const keyName = event.key;
+                switch (keyName){
+                    case 'w':
+                        if(redboxTopMargin>5){
+                            redboxTopMargin -= step;
+                            redBox.style.marginTop = redboxTopMargin+'px';
+                        };
+                        break;
+                    case 's':
+                        if(redboxTopMargin < (window.innerHeight-20-step)){
+                            redboxTopMargin += step;
+                            redBox.style.marginTop = redboxTopMargin+'px';
+                        };
+                        break;
+                    case 'a':
+                        if(redboxLeftMargin>5){
+                            redboxLeftMargin -= step;
+                            redBox.style.marginLeft = redboxLeftMargin+'px';
+                        };
+                        break;
+                    case 'd':
+                        if(redboxLeftMargin < (window.innerWidth-20-step)){
+                            redboxLeftMargin += step;
+                            redBox.style.marginLeft = redboxLeftMargin+'px';
+                        };
+                        break;
+                    default:
+                        break;
+                }  
+            });
+        </script>
+    </body>
+</html>
