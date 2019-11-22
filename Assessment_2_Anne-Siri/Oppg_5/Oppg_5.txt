@@ -1,0 +1,34 @@
+OPPGAVE 5A:
+
+Personas er en metode der man lager en fiktiv bruker. Man bygger opp en person med 
+bakgrunn, interesser osv. slik at man kan føle at dette er en person men kan identifisere 
+seg med. Dette brukes videre til å evaluere produktet/ideen for å se hvordan produktet 
+passer til behovene til denne personen. Denne metoden brukes i define-fasen.
+
+
+OPPGAVE 5B:
+
+De fire fasene i double-diamond er:
+Discover - fasen for brainstorming og kartlegging. Bli kjent med problemet.
+Define - fasen for å avgrense problemet og finne hvilke områder som skal utvikles.
+Develop - fasen for å se på ulike måter å løse problemet på. Testing, prøving og feiling
+Delivier - fasen for å implementere løsningen.
+
+
+OPPGAVE 5C:
+Med tanke på fargebruk og UU bør man blant annet tenke på:
+
+Kontraster: Med dårlig kontrast kan det være vanskelig å se forskjell ved nedsatt
+syn, ulike skjerminnstillinger og i skarpt lys. Dette kan vi avhjelpe ved å ha 
+god kontrast mellom farger der det er mening/tekst som skal tolkes.
+
+Flere metoder for å markere: I mange tilfeller kan det være vanskelig å se farger.
+Og selv om farger er veldig godt verktøy for å formidle informasjon bør det alltid
+suppleres med andre markeringer også, f.eks. understrekning av linker, symboler på
+knapper og linjetyper på grafer. Dette vil også være viktige for fargeblinde, slik
+at de også klarer å skille ut ulike komponenter og meningen med dem.
+
+Kulturell mening: Vi har alle en viss formening om hva farger symboliserer. Både
+kulturelt (svart er ikke sørgefarge overalt) og vane (grønt betyr ok, rødt betyr 
+feil). Man bør bruke farger slik brukeren forventer at de brukes. En feilmelding 
+bør f.eks. ikke være grønn.

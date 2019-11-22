@@ -1,0 +1,43 @@
+$widthCard: 330px;
+$space: 16px;
+
+.card-container{
+    border: solid black 2px;
+    width: $widthCard;
+    padding: $space;
+    margin: 2*$space;
+
+    > div{
+        border:solid 0.5px black;
+        width:$widthCard+(4*$space);
+        position:relative;
+        top: -260px;
+        left: -2*$space;
+    }
+
+    .card-title{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    
+    .card-text{
+        font-size: 1.1rem;
+        padding-top: $space;
+        padding-bottom: $space;
+    }
+    
+    button{
+        padding: $space;
+        float: right;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+    }
+    .primary{
+        background-color:rgb(84, 112, 29);
+    }
+    .secondary{
+        background-color: rgb(36, 22, 19);
+    }
+}
+

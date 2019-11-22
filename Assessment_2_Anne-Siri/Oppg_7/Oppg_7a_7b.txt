@@ -1,0 +1,15 @@
+OPPGAVE 7A:
+
+CRUD står for: Create Read Update Delete
+
+REST API med CRUD vil i praksis bety at man må støtte
+følgende http-forespørsler (eller tilsvarende):
+POST
+GET
+PUT
+DELETE
+
+
+OPPGAVE 7b:
+
+Http-feilmelding 404 kommer når man etterspør en side som ikke finnes.
