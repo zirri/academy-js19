@@ -14,4 +14,6 @@ class Grades {
 };
 
 const grade = new Grades(5);
-console.log(grade.getGrade())
+console.log(grade.getGrade());
+
+module.exports=Grades;
