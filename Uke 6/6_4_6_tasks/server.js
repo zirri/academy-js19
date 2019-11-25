@@ -10,6 +10,7 @@ class Grades {
     setGrade(grade){
         this.grade = grade;
     }
+    
 };
 
 const grade = new Grades(5);
