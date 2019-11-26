@@ -6,6 +6,8 @@ const fs = require('fs');
 // Define middleware
 
 app.use(bodyParser.json());
+
+
 let users = fs.readFileSync('./users.json');
 users = JSON.parse(users)
 function nextId(users){

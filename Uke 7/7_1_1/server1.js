@@ -18,7 +18,7 @@ function getJoke(){
 // Definer routes
 
 app.get('/jokes', (req, res) => {
-    console.log('Req');
+    console.log('get request handeled');
     res.json({ message: getJoke() });
 });
 

@@ -8,9 +8,9 @@ app.get('/ping-pong/:para', (req, res) => {
     let pingPing = req.params.para;
     let result = '';
     if(pingPing=='ping'){
-        result = 'ping';
-    }else if(pingPing == 'pong'){
         result = 'pong';
+    }else if(pingPing == 'pong'){
+        result = 'ping';
     }else{
         result = 'unknown property'
     }

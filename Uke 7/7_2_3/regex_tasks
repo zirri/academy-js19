@@ -1,0 +1,35 @@
+Task 1 (Sample 1):
+
+Write a regex that finds all four digit numbers in the text below.
+/\d{4}/
+
+Task 2 (Sample 1):
+
+Write a regex that finds the last word in all the sentences below.
+/\w+[.!?]/
+
+Task 3 (stretch)(Sample 1): 
+
+Write a regex that finds all  words that start with an upper case.
+/[A-Z]\w+/
+
+Task 4 (stretch)(Sample 2):
+
+Write a regex that checks that an email is valid.
+Regex taget all a-z characters and .-_ before @ then a word an then a . and then 2-5 char a-z
+[\w.-]+@[\w.-]+\.[a-zA-Z]{2,5}
+
+Text sample 1:
+
+Francesco Vezzi (1651–1740) was a goldsmith, though more interested in business as a "speculator", and had visited the Vienna factory. He had recently bought a Venetian title of nobility. He financed the factory, run by his son Giovanni (born 1687). They made Christoph Conrad Hunger a partner in 1721. He had worked in Vienna and had visited Meissen, apparently learning some of its secrets. He left Venice in 1724, and returned to Meissen in 1727. This seems to have led to the end of supplies of the vital ingredient kaolin being sent to Venice from Saxony.
+
+There was to be no more porcelain made in Venice between 1727 and 1758, and only the Cozzi porcelain factory was to achieve a lasting success there in the 18th century, operating from 1764 to 1812. The Vezzi factory was at the time unique among European factories in operating on a purely commercial basis. Most other factories were owned by the ruler, as Meissen and later Vienna were, or at least had government support, both moral and financial. Later, the English factories such as Chelsea and Bow were also to stand alone. Giovanni Vezzi may eventually have faced opposition even from his father Francesco, perhaps because his new peer group in the Venetian nobility felt that owning a smoky manufacturing business in the city was inappropriate behaviour. In 1727 an agreement between father and son cancelled the latter's debts but required him to destroy the kilns.
+
+Text sample 2:
+
+magnus@example.com
+magnus@example
+magnus.example.com
+foo@example.info
+
+(Email 1 and 4 are valid, 2 and 3 are invalid).

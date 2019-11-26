@@ -1,0 +1,36 @@
+Nyttig software:
+- VS code
+- Git
+- Postman
+- Node
+- Slack
+
+
+Nyttige add-ons:
+- VS Code:
+    Quokka
+    Color brackets (noe lignende)
+
+- Nettleser:
+
+
+NPM:
+- express
+- body-parser (sørger for å hente ut body)
+- fs (lese/skrive til fil)
+- cors (cross origin script - får jkøre på ulike porter)
+- request
+- request-promise
+- node-fetch
+- nodemon (automatisk oppdatering node-express-server)
+- joi
+
+
+Ressurser:
+- uu.difi.no
+- codecademy
+- materilize (rammeverk for sass)
+- mdn
+- codewars
+- expressjs.com
+- reqex101.com

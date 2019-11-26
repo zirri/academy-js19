@@ -15,8 +15,7 @@ const url = 'https://xkcd.com/info.0.json';
 // Definer routes
 app.get('/xkcd', async (req, res) => {
     request(url,(error, status, body)=>{
-        let result2 = JSON.parse(body);
-        res.json(result2);
+        res.type('application/json').send(body);
     })
 });
 
