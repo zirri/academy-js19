@@ -1,0 +1,23 @@
+{
+  "name": "git-test-academy",
+  "version": "1.0.0",
+  "description": "Testrepo til bruk under opplæringen på academy",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zirri/test-academy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zirri/test-academy/issues"
+  },
+  "homepage": "https://github.com/zirri/test-academy#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  }
+}

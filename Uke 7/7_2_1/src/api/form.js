@@ -34,9 +34,11 @@ router.post('/', function(req, res) {
     res.send(body);
 });
 
-module.exports = router;
+
 
 router.use('/', function(err, req, res, next) {
     console.log("Error: "+err);
     res.send(err).status(500);
 });
+
+module.exports = router;

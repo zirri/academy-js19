@@ -28,7 +28,7 @@ app.post('/user/', (req, res) => {
         name: name,
         gender: gender,
     }
-    fs.writeFileSync('./users.json', JSON.stringify(users));
+    fs.writeFileSync('./users.json', JSON.stringify(users,null,2));
     console.log(users)
     res.sendStatus(204);
 })
@@ -40,13 +40,13 @@ app.put('/user/:userid', (req, res) => {
         name: name,
         gender: gender,
     }
-    fs.writeFileSync('./users.json', JSON.stringify(users));
+    fs.writeFileSync('./users.json', JSON.stringify(users,null,2));
     res.sendStatus(204);
 })
 
 app.delete('/user/:userid', (req, res) => {
     delete users[req.params.userid];
-    fs.writeFileSync('./users.json', JSON.stringify(users));
+    fs.writeFileSync('./users.json', JSON.stringify(users,null,2));
     res.sendStatus(204);
 })
 

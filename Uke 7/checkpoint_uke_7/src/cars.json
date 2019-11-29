@@ -1,0 +1,32 @@
+[
+    {
+        "make": "Tesla",
+        "model": "Cybertruck",
+        "features": ["4wd", "fast-charge", "700km", "4-door"]
+    },
+    {
+        "make": "VW",
+        "model": "ID 3",
+        "features": ["2wd", "fast-charge", "300km", "5-door"]
+    },
+    {
+        "make": "Renault",
+        "model": "Zoe",
+        "features": ["2wd", "slow-charge", "150km", "5-door"]
+    },
+    {
+        "make": "Jaguar",
+        "model": "I-Pace",
+        "features": ["4wd", "fast-charge", "500km", "5-door"]
+    },
+    {
+        "make": "Tesla",
+        "model": "Model 3",
+        "features": ["4wd", "fast-charge", "450km", "5-door"]
+    },
+    {
+        "make": "Buddy",
+        "model": "One",
+        "features": ["2wd", "slow-charge", "50km", "2-door"]
+    }
+]

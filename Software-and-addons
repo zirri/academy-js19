@@ -4,6 +4,7 @@ Nyttig software:
 - Postman
 - Node
 - Slack
+- jenkins (deployment - bra men av og for ingeniører)
 
 
 Nyttige add-ons:
@@ -19,12 +20,16 @@ NPM:
 - body-parser (sørger for å hente ut body)
 - fs (lese/skrive til fil)
 - cors (cross origin script - får jkøre på ulike porter)
-- request
+- request (http-requests)
 - request-promise
 - node-fetch
 - nodemon (automatisk oppdatering node-express-server)
-- joi
-
+- joi (verifisering av variabler)
+- mocha (test-runner)
+- chai (test-verktøy/test-bibliotek)
+- assert (alternativ til chai, men Magnus mener chai har bedre dokumentasjon)
+- eslint test (tool for identifying and reporting on patterns found in ECMAScript/JavaScript code)
+- socket.io (ting som er live - chat/notifications etc.)
 
 Ressurser:
 - uu.difi.no

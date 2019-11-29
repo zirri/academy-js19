@@ -1,1 +1,14 @@
-{"101":{"name":"Mari","gender":"female"},"102":{"name":"Mari","gender":"female"},"103":{"name":"Petter","gender":"male"}}
+{
+  "101": {
+    "name": "Marius",
+    "gender": "male"
+  },
+  "102": {
+    "name": "Mari",
+    "gender": "female"
+  },
+  "103": {
+    "name": "Petter",
+    "gender": "male"
+  }
+}
