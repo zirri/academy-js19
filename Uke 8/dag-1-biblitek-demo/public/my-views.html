@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Library</title>
+</head>
+<body>
+    <header>
+        <h1>Library app</h1>
+    </header>
+    <main id="main">
+        <div id="overview">
+            <button>Add book</button>
+            <ul>
+                <li>
+                    Harry Potter | J.K. Rowling
+                </li>
+                <li>
+                    Lord of the rings |J.R.R. Tolkien
+                </li>
+                <li>
+                    Mistborn | Brandon Sanderson
+                </li>
+            </ul>
+        </div>
+
+        <hr>
+        <div id="editview">
+                <button>Back to overview</button>
+            <form>
+                <label for="title">Title: </label>
+                <input type="text" name="title" id="title">
+                <label for="written-by">Written by: </label>
+                <input type="text" name="written-by" id="written-by">
+                <label for="img-url">Image url: </label>
+                <input type="text" name="img-url" id="img-url">
+                <label for="synopsis">Synopsis: </label>
+                <input type="text" name="synopsis" id="synopsis">
+            </form>
+            <button type="submit">Edit book</button>
+            <button>Cancel</button>
+        </div>
+
+        <hr>        
+        <div id="bookdetailsview">
+            <button>Back to overview</button>
+            <img src="">
+            <h2>Harry Potter</h2>
+            <h3>Written by J.K. Rowling</h3>
+            <p>Half-giant jinxes peg-leg gillywater broken glasses large black dog Great Hall. Nearly-Headless Nick now string them together, and answer me this, which creature would you be unwilling to kiss? Poltergeist sticking charm, troll umbrella stand flying cars golden locket Lily Potter. Pumpkin juice Trevor wave your wand out glass orbs, a Grim knitted hats. Stan Shunpike doe patronus, suck his soul Muggle-Born large order of drills the trace. Bred in captivity fell through the veil, quaffle blue flame ickle diddykins Aragog. Yer a wizard, Harry Doxycide the woes of Mrs. Weasley Goblet of Fire.</p>
+            <button>Edit book</button>
+            <button>Delete</button>
+        </div>
+    </main>
+</body>
+</html>
