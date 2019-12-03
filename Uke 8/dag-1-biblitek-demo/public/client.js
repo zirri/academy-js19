@@ -12,6 +12,34 @@ async function getBookById(bookId){
     return response
 }
 
+async function postNewBook(book){
+    return fetch('/books',{
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(book)
+    });
+}
+
+async function putEditBook(book){
+    console.log(`/books/${book.bookId}`)
+    return fetch(`/books/${book.bookId}`,{
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(book)
+    });
+};
+
+async function deleteBook(bookId){
+    return fetch(`/books/${bookId}`,{
+        method: 'DELETE'
+    });
+}
+
+
 //Creating HTML markup
 function createBookItemMarkup(book){
     return`<li id="${book.id}">${book.title} | ${book.author}</li>`;        
@@ -21,7 +49,7 @@ function createBookItemMarkup(book){
 function createOverviewMarkup(books){
     return `
     <div id="overview">
-        <button>
+        <button id="add-button">
             Add book
         </button>
         <ul id="list-of-books">
@@ -39,29 +67,46 @@ function renderDetailsMarkup(book){
         <h3>Written by ${book.author}</h3>
         <p>${book.summary}</p>
         <button id="edit-button">Edit book</button>
-        <button id="delete-button">Delete</button>
+        <button id="button-delete">Delete</button>
     </div>`;
 }
 
-function renderAddBookMarkup(book){
+function renderEditBookMarkup(book){
     return `<div id="edit-book">
     <button id="button-overview">Back to overview</button>
-    <form>
+    <form id="edit-book-form">
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="title" value="${book.title}">
+        <label for="author">Written by: </label>
+        <input type="text" name="author" id="author" value="${book.author}">
+        <label for="img-url">Image url: </label>
+        <input type="text" name="img-url" id="imgUrl" value="${book.img}">
+        <label for="summary">summary: </label>
+        <input type="text" name="summary" id="summary" value="${book.summary}">
+    </form>
+    <button type="submit" id="submit-button">Save</button>
+    <button id="cancel-button">Cancel</button></div>`;
+}
+
+function renderAddBookMarkup(){
+    return `<div id="edit-book">
+    <button id="button-overview">Back to overview</button>
+    <form id="add-book-form">
         <label for="title">Title: </label>
         <input type="text" name="title" id="title">
-        <label for="written-by">Written by: </label>
-        <input type="text" name="written-by" id="written-by">
+        <label for="author">Written by: </label>
+        <input type="text" name="author" id="author">
         <label for="img-url">Image url: </label>
-        <input type="text" name="img-url" id="img-url">
-        <label for="synopsis">Synopsis: </label>
-        <input type="text" name="synopsis" id="synopsis">
+        <input type="text" name="imgUrl" id="imgUrl">
+        <label for="summary">summary: </label>
+        <input type="text" name="summary" id="summary">
     </form>
-    <button type="submit">Save</button>
-    <button>Cancel</button></div>`;
+    <button type="submit" id="submit-button">Save</button>
+    <button id="cancel-button">Cancel</button></div>`;
 }
 
 
-//rendering funcctions
+//rendering functions
 async function renderOverview(parent){
     const books = await getAllBooks();
     parent.innerHTML = createOverviewMarkup(books);
@@ -69,11 +114,11 @@ async function renderOverview(parent){
     //Eventlisteners
     const listNode = document.querySelector('#list-of-books');
     listNode.addEventListener('click', event =>{
-        renderBookDetails(mainNode, event.target.id)
-    });
-    const Button = document.querySelector('#list-of-books');
-    listNode.addEventListener('click', event =>{
         renderBookDetails(mainNode, event.target.id);
+    });
+    const addButton = document.querySelector('#add-button');
+    addButton.addEventListener('click', event => {
+        renderAddBook(parent);
     });
 }
 
@@ -86,31 +131,89 @@ async function renderBookDetails(parent, bookId){
     editButton.addEventListener('click', event => {
         renderEditBook(parent,bookId);
     });
+
     const addButton = document.querySelector('#button-overview');
     addButton.addEventListener('click', event => {
         renderOverview(parent);
-        console.log('back to overview')
-    })
+    });
+
+    const deleteButton = document.querySelector('#button-delete');
+    deleteButton.addEventListener('click', event => {
+        deleteBook(bookId)
+        .then(res => {
+            console.log(res.status);
+            renderOverview(parent);
+        })
+    });
 }
 
-function renderEditBook(parent, bookId){
-    parent.innerHTML = renderEditBookMarkup(bookId);
+async function renderEditBook(parent, bookId){
+    const book = await getBookById(bookId);
+    parent.innerHTML = renderEditBookMarkup(book);
 
     //Eventlisteners
     const overviewButton = document.querySelector('#button-overview');
     overviewButton.addEventListener('click', event => {
         renderAddBook(parent);
     })
+
+    const cancelButton = document.querySelector('#cancel-button');
+    cancelButton.addEventListener('click', event => {
+        renderBookDetails(parent, bookId);
+    })
+
+    const submitButton = document.querySelector('#submit-button');
+    submitButton.addEventListener('click', event => {
+        event.preventDefault();
+        const editForm = document.querySelector('#edit-book-form');
+        const bookToEdit = {
+            title: editForm.title.value,
+            author: editForm.author.value,
+            img: editForm.imgUrl.value,
+            summary: editForm.summary.value,
+            bookId: bookId
+        };
+        putEditBook(bookToEdit)
+        .then(res => {
+            return res.json()
+        }).then(res => {
+            renderBookDetails(parent, res.id);
+        })
+    })
 }
 
-function renderAddBook(parent){
-    parent.innerHTML = renderAddBookMarkup(bookId);
+async function renderAddBook(parent){
+    parent.innerHTML = renderAddBookMarkup();
 
     //Eventlisteners
     const overviewButton = document.querySelector('#button-overview');
     overviewButton.addEventListener('click', event => {
         renderOverview(parent);
     })
+
+    const cancelButton = document.querySelector('#cancel-button');
+    cancelButton.addEventListener('click', event => {
+        renderOverview(parent);
+    })
+
+    const submitButton = document.querySelector('#submit-button');
+    submitButton.addEventListener('click', event => {
+        event.preventDefault();
+        const addForm = document.querySelector('#add-book-form');
+        const bookToAdd = {
+            title: addForm.title.value,
+            author: addForm.author.value,
+            img: addForm.imgUrl.value,
+            summary: addForm.summary.value,
+        };
+        postNewBook(bookToAdd)
+        .then(res => {
+            console.log(res.status);
+            renderOverview(parent);
+        })
+    })
+
+    
 }
 
 renderOverview(mainNode);

@@ -9,6 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "@hapi/joi": "^16.1.8",
+    "express": "^4.17.1",
+    "fs-readfile-promise": "^3.0.1",
+    "fs-writefile-promise": "^3.0.2"
   }
 }
