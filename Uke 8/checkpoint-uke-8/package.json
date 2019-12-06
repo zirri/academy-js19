@@ -1,0 +1,23 @@
+{
+  "name": "checkpoint-uke-8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass node_modules/materialize-css/sass/materialize.scss public/style.css",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^16.1.8",
+    "body-parser": "^1.19.0",
+    "camelcase-keys": "^6.1.1",
+    "express": "^4.17.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "pg": "^7.14.0",
+    "sass": "^1.23.7",
+    "snakecase-keys": "^3.1.0"
+  }
+}
