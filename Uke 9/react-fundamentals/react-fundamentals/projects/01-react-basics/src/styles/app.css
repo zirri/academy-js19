@@ -1,0 +1,17 @@
+.flight-info {
+  padding: 20px;
+  border-bottom: 1px dashed;
+}
+
+.flight-info-summary {
+
+}
+
+.flight-info-summary-opened {
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+.flight-info-details {
+
+}

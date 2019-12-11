@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const customFn = require('./functions')
+const customFn = require('./functions');
+const db = require('./queries');
 
 
 //Middleware
@@ -16,7 +17,8 @@ router.post('/', (req, res, next)=>{
 
 router.put('/', (req, res, next)=>{
     try{
-        customFn.checkBookInput(req.body);
+        const result = customFn.checkBookInput(req.body);
+        console.log(result)
         next();
     }catch(error){
         next(error);
@@ -26,57 +28,45 @@ router.put('/', (req, res, next)=>{
 //Endpoints
 router.get('/:id', async function (req, res) {
     const id = req.params.id;
-    const books = await customFn.readFromFile('./src/books.json');
-    const book = books.filter(book => book.id == id)[0];
+    const book = await db.getBookByIdQuery(id);
     console.log('Get request book, bookId: '+id);
     res.json(book);
 })
 
 router.get('/', async function (req, res){
-    const books = await customFn.readFromFile('./src/books.json');
+    const books = await db.getBooksQuery();
     console.log('Get request all books')
     res.json(books);
 })
 
 router.post('/', async function (req, res){
-    const books = await customFn.readFromFile('./src/books.json');
-    const newId = customFn.getNewId();
     const book = {
-        id: newId,
         title: req.body.title,
         author: req.body.author,
-        img: req.body.img,
+        imgurl: req.body.imgurl,
         summary: req.body.summary
-    }
-    books.push(book);
-    await customFn.writeToFile('./src/books.json',books);
-    console.log('Adding new book with bookId: '+book.id)
-    res.json(book);
+    };
+    const insertedBook = await db.createBookQuery(book);
+    console.log('Adding new book with bookId: '+insertedBook.id);
+    res.json(insertedBook);
 })
 
 router.put('/:id', async function(req, res){
-    const books = await customFn.readFromFile('./src/books.json');
     const {id} = req.params || -1;
     const bookToEdit = {
-        id,
         title: req.body.title,
         author: req.body.author,
-        img: req.body.img,
+        imgurl: req.body.imgurl,
         summary: req.body.summary
     };
-    const indexBook = books.findIndex(book => book.id == bookToEdit.id);
-    books[indexBook] = bookToEdit;
-    await customFn.writeToFile('./src/books.json', books);
-    console.log('Edit book with bookId: '+bookToEdit.id);
-    res.json(bookToEdit);
+    const editedBook = await db.updateBookQuery(id, bookToEdit);
+    console.log('Edit book with bookId: '+editedBook.id);
+    res.json(editedBook);
 })
 
 router.delete('/:id', async function (req, res){
-    const books = await customFn.readFromFile('./src/books.json');
     const bookId = req.params.id;
-    const indexBook = books.findIndex(book => book.id == bookId);
-    books.splice(indexBook,1)
-    await customFn.writeToFile('./src/books.json', books);
+    await db.deleteBookQuery(bookId);
     console.log('Deleted book with bookId: '+bookId);
     res.sendStatus(204);
 })

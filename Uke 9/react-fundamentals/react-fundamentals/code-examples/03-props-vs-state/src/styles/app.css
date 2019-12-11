@@ -1,0 +1,27 @@
+.flight-info {
+  padding: 20px;
+  border-bottom: 1px dashed;
+}
+
+.flight-info-summary {
+
+}
+
+.flight-info-summary-opened {
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+.flight-info-details {
+
+}
+
+.airline-selection {
+  border: 1px dashed;
+  padding: 20px;
+}
+
+.airline-selection-item {
+  padding: 20px;
+  display: inline-block;
+}

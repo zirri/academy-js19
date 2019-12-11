@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>React in the Real World 2 - Basic React Concepts: Slides</title>
+		<meta name="description" content="Slides">
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+
+
+	</head>
+	<body class="reveal-viewport theme-font-montserrat theme-color-cobalt-orange">
+		<div class="reveal">
+			<div class="slides">
+				<section data-id="6d7c40a9199dfacc6c330178186d12fb"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 253px; height: auto;" data-block-id="9fc60d1dbe8ba8981e72305c0b6783a7"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">
+<h1>React<br>
+Basic Concepts</h1>
+</div></div></section><section data-id="15692bc90df538cc39dbcc3f0f20e54b"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 96px; height: auto;" data-block-id="8cf1ac92874c16050d947790e292839c"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text">
+<h2>What we'll cover</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="width: 800px; left: 66px; top: 210px; height: auto;" data-block-id="92a362e74de8388e0eafd4e7d2b1ab03"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text">
+<ul>
+	<li class="fragment" data-fragment-index="0">Why React?</li>
+	<li class="fragment" data-fragment-index="1">React Basics</li>
+	<li class="fragment" data-fragment-index="2">JSX (and gotchas)</li>
+	<li class="fragment" data-fragment-index="3">PropTypes</li>
+	<li class="fragment" data-fragment-index="4">Props vs. State</li>
+	<li class="fragment" data-fragment-index="5">Lifecycle</li>
+	<li class="fragment" data-fragment-index="6">Mixins</li>
+	<li class="fragment" data-fragment-index="7">Composition</li>
+	<li class="fragment" data-fragment-index="8">Animations/Transitions</li>
+	<li class="fragment" data-fragment-index="9">Forms</li>
+</ul>
+</div></div></section><section class="has-dark-background" data-background-color="#21202a" data-id="7a546ca01c5e0deb884dae38817e37d9"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="31b6e27d62bcadb3ebe828e99c4f980e"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%;">
+<h1>Why React?</h1>
+</div></div></section><section class="stack" data-id="4a34ccd0f1ca69a32c8516decddbe127"><section class="has-dark-background" data-background-color="#21202a" data-id="5899631cec38af4b7bcd97e0c5e44890"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="a989fa2706d04c82d2fea088e087dea1"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">
+<h1>React background and history</h1>
+</div></div></section><section data-background-image="deck-24/1156785-logo-dimmed.png" data-background-size="cover" data-id="3d51e63ef27ce962083a28a93ad4c2f1"><div class="sl-block" data-block-type="image" style="width: 960px; height: 621.871921182266px; left: 0px; top: 51px;" data-block-id="4741d9f3156febceb09077ce2857bb82"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="812" data-natural-height="526" style="visibility: visible;" data-src="deck-24/1156787-framework-cloud.png"></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="37e663f7c2222fcfd145bec0ef792695"><div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 103px;" data-block-id="34eaa3851ac3b8be7b65d7b4d111c5cc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<h2>Open Source</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 200px; height: 200px; left: 240px; top: 250px;" data-block-id="9081370ba237c921dfd19ad82959a2f1"><div class="sl-block-content" style="z-index: 12;"><img style="visibility: visible;" data-natural-width="900" data-natural-height="900" data-src="deck-24/1157121-facebook.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 200px; height: 200px; left: 520px; top: 250px;" data-block-id="2057ff68bcc50c12011bca07fa73e4f2"><div class="sl-block-content" style="z-index: 13;"><img style="visibility: visible;" data-natural-width="900" data-natural-height="900" data-src="deck-24/1157123-instagram.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 181px; top: 521px;" data-block-id="c36e90b1582d0b4a0e6270a7c9c3258f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;">
+<p><span style="color:rgb(233, 233, 233)">A JAVASCRIPT LIBRARY FOR BUILDING USER INTERFACES</span></p>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="69dfe40f9c2a8ccdd1249f103549ed07">
+
+
+<div class="sl-block" data-block-type="image" data-block-id="7a2bcc4faf5aa91744853a00bdc00159" style="min-width: 30px; min-height: 30px; width: 912.333px; height: 644px; left: 30px; top: 32px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1275" data-natural-height="900" data-src="deck-24/1983044-react-github-1.png"></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="f7cc710f1d19bd0c3343e572bccf59a6">
+
+
+<div class="sl-block" data-block-type="image" style="width: 912px; height: 643.765px; left: 30px; top: 32px;" data-block-id="ada33091d71c8fcdcad5c69852883d06"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1275" data-natural-height="900" data-src="deck-24/1983047-react-github-2.png"></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="c58c1e4878544baf36b1749d0a6894ff"><div class="sl-block" data-block-type="text" style="height: auto; width: 784px; left: 88px; top: 147px;" data-block-id="0a37fddcab4e80a3136ca3d1103ad4f9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<h2>What is React?</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 718px; left: 121px; top: 292px;" data-block-id="4d9cee70fe9e2849c589d7198024dca3"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);">
+<ul>
+	<li class="fragment" data-fragment-index="0">V in MVC (not quite accurate..)</li>
+	<li class="fragment" data-fragment-index="1">Another way of thinking about stateful UI</li>
+	<li class="fragment" data-fragment-index="2">Facilitates some interesting patterns</li>
+	<li class="fragment" data-fragment-index="3">Powerful abstractions</li>
+	<li class="fragment" data-fragment-index="4">Supports universal rendering OOTB</li>
+</ul>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="363c1873c28f6a046906d46faedeac45"><div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 151px;" data-block-id="8f6ba9c15b435450d9a8025ae2710b81"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<h2>What React isn't</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 181px; top: 292px;" data-block-id="9df6c7f460132d99a9fa3bd67ac03227"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);">
+<ul>
+	<li class="fragment" data-fragment-index="0">MVC framework</li>
+	<li class="fragment" data-fragment-index="1">Templating library</li>
+	<li class="fragment" data-fragment-index="2">2-way data-binding</li>
+</ul>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="9a0c32a25c7444a4e2dc83ab27bfcb10"><div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 147px;" data-block-id="dc004562abf928295f17f872f9f14487"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<h2>Stateful UI's</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 718px; left: 121px; top: 311px;" data-block-id="63459818b1d3de1aa2def8f3b9cf9482"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);">
+<ul>
+	<li class="">Can be a pain to reason about</li>
+	<li>Imperative mutative API's &lt;/3</li>
+</ul>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="307e69b54f6ea1b9564f2d75ad06a650"><div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 104px; top: 147px;" data-block-id="92303e1b717be55f31467f45f3c2292a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255);">
+<h2>Imperative API</h2>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 275px; height: 271px; left: 97px; top: 270px;" data-block-id="f8e23c81f0a17a84c89d859e11584bc3"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 271 271"><rect width="271" height="271" class="shape-element" fill="rgb(238, 238, 238)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 265px; left: 97px; top: 386px;" data-block-id="aa99f477adb14db50ee20285b209b0c5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(17, 17, 17);">
+<p>Application</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 275px; height: 271px; left: 584px; top: 270px;" data-block-id="e53bdd0c3085b9fc68d5ff73525c988e"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 271 271"><rect width="271" height="271" class="shape-element" fill="rgb(238, 238, 238)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 265px; left: 589px; top: 386px;" data-block-id="96163118d62507c123650d40247a2edd"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(17, 17, 17);">
+<p>DOM</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 300px; height: 11px; left: 331px; top: 435px;" data-block-id="8168dc6cc68677704c34ec0852a26f36"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 300 11"><rect width="300" height="11" class="shape-element" fill="rgb(74, 134, 232)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 300px; height: 11px; left: 332px; top: 379px;" data-block-id="0efe4ac5cbf38328ce1cfa87448dfb80"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 300 11"><rect width="300" height="11" class="shape-element" fill="rgb(74, 134, 232)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 300px; height: 11px; left: 332px; top: 490px;" data-block-id="24a5577640387657ffcd63fd90d0e36d"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 300 11"><rect width="300" height="11" class="shape-element" fill="rgb(74, 134, 232)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 300px; height: 11px; left: 331px; top: 325px;" data-block-id="0fc826ddfcec4f34118eddd5ec684614"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 300 11"><rect width="300" height="11" class="shape-element" fill="rgb(74, 134, 232)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 49px; height: 26px; left: 607px; top: 318px;" data-block-id="8c5d84b8bb37ffc5a4b8ed055eb9739e"><div class="sl-block-content" data-shape-type="arrow-right" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="false" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 26 26"><polygon points="0,7.8 13,7.8 13,0 26,13 13,26 13,18.2 0,18.2" class="shape-element" fill="rgb(74, 134, 232)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 49px; height: 26px; left: 607px; top: 425px;" data-block-id="8a7286cb78b5bf6e247a0f93e120ea4e"><div class="sl-block-content" data-shape-type="arrow-right" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="false" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 26 26"><polygon points="0,7.8 13,7.8 13,0 26,13 13,26 13,18.2 0,18.2" class="shape-element" fill="rgb(74, 134, 232)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 49px; height: 29px; left: 307px; top: 370px;" data-block-id="dff25b04d766220ce5e3b9c515fd8721"><div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="false" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 29 29"><polygon points="29,8.7 14.5,8.7 14.5,0 0,14.5 14.5,29 14.5,20.299999999999997 29,20.299999999999997 29,8.7" class="shape-element" fill="rgb(74, 134, 232)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 182px; left: 389px; top: 286px;" data-block-id="3dfaf8c0f928a4633f6d8847b3c388c5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23; color: rgb(255, 255, 255);">
+<p>mutate state</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 182px; left: 391px; top: 396px;" data-block-id="20e837f25ddaab132ad65b1439005617"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; color: rgb(255, 255, 255);">
+<p>mutate state</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 182px; left: 391px; top: 340px;" data-block-id="f8125096e0541f72fd28296d1bb9bf76"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25; color: rgb(255, 255, 255);">
+<p>read state</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 182px; left: 390px; top: 451px;" data-block-id="5112ac399dee44a8d3bde3d1c3ca431e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26; color: rgb(255, 255, 255);">
+<p>read state</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 49px; height: 29px; left: 307px; top: 481px;" data-block-id="458e006b5effce41946606ca612845f2"><div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="false" style="z-index: 27;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 29 29"><polygon points="29,8.7 14.5,8.7 14.5,0 0,14.5 14.5,29 14.5,20.299999999999997 29,20.299999999999997 29,8.7" class="shape-element" fill="rgb(74, 134, 232)"></polygon></svg></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="9b03e55f90eb5ae77f4be6b62f77557d"><div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 147px;" data-block-id="fc1ea5186f8ded440a0dc9da6cec8bbf"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255);">
+<h2>Declarative UI's</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 618px; left: 182px; top: 253px;" data-block-id="e72f48d9ca42b8a8293432390f6196ee"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<ul>
+	<li>Describe your UI at any point in time</li>
+	<li>Changes =&gt; toss everything =&gt; re-render (conceptually)</li>
+	<li>Tell your UI <em>what</em> to look like<br>
+	- not <em>how</em> to get there</li>
+</ul>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="1f5f71bb6972b93eb5227e0d3846198f"><div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 147px;" data-block-id="ad56230c9c01e681341e03a1b2c65c26"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255);">
+<h2>Declarative API</h2>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 199px; height: 222px; left: 354px; top: 268px;" data-block-id="8faf81752ccbde4d986a2b1bf27bc0e5"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 199 199"><rect width="199" height="199" class="shape-element" fill="rgb(238, 238, 238)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 143px; left: 382px; top: 344px;" data-block-id="6b93dca91dc30825199eb4127dae63d7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 70%; color: rgb(17, 17, 17);">
+<p>React</p>
+
+<p>(virtual DOM)</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 198px; height: 197px; left: 720px; top: 280px;" data-block-id="6db03c70039cf4617417f5d9d4f97bdf"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 197 197"><rect width="197" height="197" class="shape-element" fill="rgb(238, 238, 238)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 122px; left: 758px; top: 359px;" data-block-id="f9834fbea40d83492ee68104377ff328"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(17, 17, 17);">
+<p>DOM</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 115px; height: 13px; left: 249px; top: 370px;" data-block-id="081bcd941e5c669bedb0c3721f39c20f"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 115 13"><rect width="115" height="13" class="shape-element" fill="rgb(74, 134, 232)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 185px; height: 10px; left: 538px; top: 336px;" data-block-id="16c1aa2116238be5cfa731a521468360"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 185 10"><rect width="185" height="10" class="shape-element" fill="rgb(74, 134, 232)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 49px; height: 24px; left: 703px; top: 330px;" data-block-id="2c3ac4d0855839ae199398eb25fe3f98"><div class="sl-block-content" data-shape-type="arrow-right" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="false" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 24 24"><polygon points="0,7.199999999999999 12,7.199999999999999 12,0 24,12 12,24 12,16.799999999999997 0,16.799999999999997" class="shape-element" fill="rgb(74, 134, 232)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 199px; height: 222px; left: 61px; top: 268px;" data-block-id="0afa28e7b20d61cb8ac89ab3a33b270f"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 199 199"><rect width="199" height="199" class="shape-element" fill="rgb(238, 238, 238)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 175px; left: 73px; top: 364px;" data-block-id="cef584a14e61f383903f04ed7526b0f8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; font-size: 70%; color: rgb(17, 17, 17);">
+<p>Application</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 49px; height: 26px; left: 340px; top: 364px;" data-block-id="e1da1d3daba78b5bbb450fe3bec67a17"><div class="sl-block-content" data-shape-type="arrow-right" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="false" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 26 26"><polygon points="0,7.8 13,7.8 13,0 26,13 13,26 13,18.2 0,18.2" class="shape-element" fill="rgb(74, 134, 232)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 185px; height: 10px; left: 538px; top: 424px;" data-block-id="b7df84f0728360d651bc53c8a9fc494c"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="true" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 185 10"><rect width="185" height="10" class="shape-element" fill="rgb(74, 134, 232)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 49px; height: 24px; left: 703px; top: 417px;" data-block-id="28666c54d568bcf3e696ff4b6049b573"><div class="sl-block-content" data-shape-type="arrow-right" data-shape-fill-color="rgb(74, 134, 232)" data-shape-stretch="false" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 24 24"><polygon points="0,7.199999999999999 12,7.199999999999999 12,0 24,12 12,24 12,16.799999999999997 0,16.799999999999997" class="shape-element" fill="rgb(74, 134, 232)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 88px; left: 263px; top: 340px;" data-block-id="ac41e82c9e25cc1b506fb69dcf351f78"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23; color: rgb(255, 255, 255); font-size: 68%;">
+<p>state</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 167px; left: 553px; top: 306px;" data-block-id="5258809b71dab284da0bbf56a8052385"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25; color: rgb(255, 255, 255); font-size: 68%;">
+<p>patch state</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 167px; left: 553px; top: 394px;" data-block-id="bfe2705b69a254cb25bd96e7b1cf2b42"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26; color: rgb(255, 255, 255); font-size: 68%;">
+<p>patch state</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 88px; left: 263px; top: 383px;" data-block-id="10842ecd1ac536a6467fd4e361792aa6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27; color: rgb(255, 255, 255); font-size: 68%;">
+<p>props</p>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="758ff7990a5f50e83949b097c8fdd0af"><div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 147px;" data-block-id="d0e7ddc6b81809c90900ab129ddaee3f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<h2>How this is viable</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 718px; left: 121px; top: 292px;" data-block-id="88e1f9d04cbddc54d2f09cf5724d3a1c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);">
+<ul>
+	<li>Virtual DOM (JavaScript)</li>
+	<li>Efficient diffing algorithm</li>
+	<li>No state kept in DOM</li>
+</ul>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="27f5f01a2ccaced43f940e07e94492ab"><div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 24px;" data-block-id="b4a222d9cc6df50a532c9dabbfdd9e85"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Using React to make awesome stuff</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 279px; height: 124px; left: 681px; top: 148px;" data-block-id="eec6cbc4ccbb6a44d7c278f4a3ac66db"><div class="sl-block-content" style="z-index: 12;"><img style="visibility: visible;" data-natural-width="576" data-natural-height="256" data-src="deck-24/1157164-airbnb.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 309.244px; height: 92px; left: 99px; top: 538px;" data-block-id="da7e2b1b6358beb13301a9d1d88bb9de"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="800" data-natural-height="238" style="visibility: visible;" data-src="deck-24/1157166-bbc.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 360px; height: 108px; left: 74px; top: 420px;" data-block-id="5aea4bf5ae7db6a6cee0a5aad1c430d4"><div class="sl-block-content" style="z-index: 14;"><img data-natural-width="1000" data-natural-height="300" style="visibility: visible;" data-src="deck-24/1157170-codecademy.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 164px; height: 164px; left: 720px; top: 280px;" data-block-id="61be23bb6187f54680036dfc2d2311fd"><div class="sl-block-content" style="z-index: 15;"><img data-natural-width="900" data-natural-height="900" style="visibility: visible;" data-src="deck-24/1157172-facebook.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 212px; height: 212px; left: 62px; top: 198px;" data-block-id="3b0851e80b3bd87182ae6747127c1528"><div class="sl-block-content" style="z-index: 16;"><img data-natural-width="661" data-natural-height="661" style="visibility: visible;" data-src="deck-24/1157174-flipboard.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 181px; height: 181px; left: 699px; top: 490px;" data-block-id="0a137e6add3ef945bbd6425f581a86ba"><div class="sl-block-content" style="z-index: 17;"><img style="visibility: visible;" data-natural-width="900" data-natural-height="900" data-src="deck-24/1157178-instagram.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 360px; height: 202.5px; left: 300px; top: 249px;" data-block-id="634c1da560f83fd82f5528da7308b9ed"><div class="sl-block-content" style="z-index: 18;"><img style="visibility: visible;" data-natural-width="1600" data-natural-height="900" data-src="deck-24/1157181-netflix.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 360px; height: 68.4px; left: 289px; top: 187px;" data-block-id="813b7b9d4180f97abd276018b6dde00d"><div class="sl-block-content" style="z-index: 19;"><img data-natural-width="800" data-natural-height="152" style="visibility: visible;" data-src="deck-24/1157182-yahoo.png"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 211.5px; height: 211.5px; left: 454px; top: 431px;" data-block-id="aa769bba5a592778d69e73f872f1d417"><div class="sl-block-content" style="z-index: 20;"><img style="visibility: visible;" data-natural-width="900" data-natural-height="900" data-src="deck-24/1157190-vivaldi.png"></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="24de4c6850d5a6eac587c64e8f7dfa51">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 576px; left: 192px; top: 35px;" data-block-id="b7e40b425975879e6ac1e5193217d8c0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>React Canvas</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 288px; height: 501.467px; left: 160px; top: 140px;" data-block-id="fc657225b462a365b4a765c812a2eed2"><div class="sl-block-content" style="z-index: 11;"><img data-natural-width="398" data-natural-height="693" style="visibility: visible;" data-src="http://engineering.flipboard.com/assets/mobileweb/scrolling.gif"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 295.217px; height: 501px; left: 508.5px; top: 140px;" data-block-id="b5cfc40e2d9073a36550d2838260594d"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="340" data-natural-height="577" style="visibility: visible;" data-src="http://engineering.flipboard.com/assets/mobileweb/flip_ui.gif"></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="83c98e9a355449ae44003b1bfc6ad2bd">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 576px; left: 192px; top: 70px;" data-block-id="1ba3734f6eeddc931af9a647c41f0f8b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>React Native</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 270.982px; height: 486px; left: 672px; top: 159px;" data-block-id="8eb6d3194a59d8020d27c022cadd3da6"><div class="sl-block-content" style="z-index: 12; border-style: solid; border-width: 1px;"><img data-natural-width="368" data-natural-height="660" style="visibility: visible;" data-src="https://camo.githubusercontent.com/af681e3fe38da4aa45babe678ce8e10edc89edeb/687474703a2f2f7370726f6e696e2e6769746875622e696f2f696d672f72656163742e676966"></div></div>
+<div class="sl-block" data-block-type="image" style="width: 651.814px; height: 392px; left: 9px; top: 210px;" data-block-id="b5ff170559f253a3be29e4ce05ae4ad8"><div class="sl-block-content" style="z-index: 13; border-width: 1px;"><img data-natural-width="858" data-natural-height="516" style="visibility: visible;" data-src="http://adtmag.com/blogs/dev-watch/2015/02/~/media/ECG/adtmag/Images/2015/01/react.png"></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="b3122d45da07c7981412caac8a995c1a">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 823px; left: 69px; top: 350px;" data-block-id="bb25bf8d984c8a05bf4e7b7e106b27a5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Learn once - Write anywhere</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 846px; left: 57px; top: 280px;" data-block-id="3a6fcda63eba3c9fe3657f87ea058120"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255); font-size: 94%;">
+<h2><s>Write once - Deploy anywhere</s></h2>
+</div></div></section></section><section class="has-dark-background" data-background-color="#21202a" data-id="592a4a49827e52efca6bf19e54136d9a"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="77df5b22e6d7736cc27160621fc32370"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>JavaScript Frameworks<br>
+and<br>
+templateing</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="c3da54905b1b84264262fc6032aae49e" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 541px;"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+<p>Markdown lecture</p>
+</div></div></section><section class="has-dark-background" data-background-color="#21202a" data-id="258711a59c633ea17cd0d73ff4d41686"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="d8116719a24862e66b2d9a8e2546b6e3"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%; z-index: 10;">
+<h1>React Basics</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 331px;" data-block-id="4d8afd0792744b63340dd6affc3f46de"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /lectures folder</p>
+</div></div></section><section class="stack" data-id="188ebd59838aa55b2619e2f99bebe65a"><section class="has-dark-background" data-background-color="#21202a" data-id="b06cef2b9244f1af396e0a22ecea7918"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 113px; height: auto;" data-block-id="1084fdf320c8fd228efeaacc444bf9c3"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Events in React</h1>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="720f96aea80cddd9253f366fd527d976">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 82px;" data-block-id="38850d962f9357a978d38f048caffe4c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 197%;">
+<h2>Events</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 274px;" data-block-id="4ec771052df216e4b355c682e4e12c4c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255); font-size: 195%;">
+<ul>
+	<li>Synthetic</li>
+	<li>Declarative</li>
+</ul>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="fbe654a0aa0dba5247fc2b982801e9ac">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 105px;" data-block-id="7ffc801f6b4f524e31250449351f1486"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Event Handlers</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 792px; height: 361px; left: 85px; top: 240px;" data-block-id="f3d9aa0b94ed9459be60a74e43a050a2"><div class="sl-block-content" style="z-index: 12; font-size: 130%;" data-highlight-theme="monokai"><pre class="javascript"><code>var HelloWorldComponent = React.createClass({
+  getInitialState: //...
+
+  handleClick: //...
+
+  render: function() {
+    return (
+      &lt;div onClick={this.handleClick} className="some-style"&gt;
+        &lt;p&gt;{this.props.greeting}&lt;/p&gt;
+        &lt;p&gt;{this.state.count}&lt;/p&gt;
+      &lt;/div&gt;
+    );
+  }
+});</code></pre></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="58c2229d5190c9f8916ec221b806e116">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 105px;" data-block-id="dd8392eef5a437859ba6a55859654a73"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Event Handling</h2>
+</div></div>
+<div class="sl-block" data-block-type="code" style="width: 792px; height: 341px; left: 85px; top: 240px;" data-block-id="6b36f751db2a7dda640006db2d151887"><div class="sl-block-content" style="z-index: 12; font-size: 130%;" data-highlight-theme="monokai"><pre><code>var HelloWorldComponent = React.createClass({
+  getInitialState: //...
+
+  handleClick: function (event) {
+    event.preventDefault();
+
+    this.setState({
+      count: this.state.count + 1
+    });
+  },
+
+  render: ...
+});</code></pre></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="1991db041662403032f9ea48d64098d5">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 35px;" data-block-id="fe8723722ee919205fe58d48d9fb5125"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Event Types</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 795.2px; height: 497px; left: 83px; top: 172px;" data-block-id="d94d3a6163893ca5de47da8b7de6bf68"><div class="sl-block-content" style="z-index: 12;"><img style="visibility: visible;" data-natural-width="960" data-natural-height="600" data-src="deck-24/1162000-event-cloud.png"></div></div></section></section><section class="stack" data-id="bfe385644cf713a6d3236c9181d33ad0"><section class="has-dark-background" data-background-color="#21202a" data-id="3d4b3da64d8470ee35654423bd80200d"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 113px; height: auto;" data-block-id="e43b12d9b86a96dfd1e3f23219b0e7c0"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Composition<br>
+in React</h1>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="c185d1b819861cf6437a5fe17cafe610">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 70px;" data-block-id="f7729107b19d695afb0f61d530a7d886"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Composition</h2>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="shape" style="width: 772px; height: 438px; left: 94px; top: 201px;" data-block-id="be2c2cac0c1766012a465d5e9bb2bd03"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 772 438"><rect width="772" height="438" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 250px; left: 110px; top: 225px;" data-block-id="412025e67bbd192a04d031586fc909d4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 143%; color: rgb(17, 17, 17);">
+<p>&lt;ChatApp /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 223px; height: 315px; left: 117px; top: 291px;" data-block-id="f9e16a3dc6374deabcd530031965e288"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 223 315"><rect width="223" height="315" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 489px; height: 252.5px; left: 353px; top: 291px;" data-block-id="12a8607575854bcff8a0017098bc58d6"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 489 253"><rect width="489" height="253" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 117px; top: 291px;" data-block-id="787ecd003967023b9c2e8ab24b0530f0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(17, 17, 17);">
+<p>&lt;FriendList /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 237.5px; left: 360px; top: 291px;" data-block-id="d7b73d4c9720c5a0e17ca69e6cc7d0cb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(17, 17, 17);">
+<p>&lt;MessageList /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 208px; height: 53px; left: 125px; top: 337px;" data-block-id="8a67ce4e6b5b858310cdec6003ac84c0"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 208 53"><rect width="208" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 116px; top: 344px;" data-block-id="82ce52a6ea2f88c6e0dd5e709a90c626"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; color: rgb(17, 17, 17);">
+<p>&lt;Friend /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 208px; height: 53px; left: 126px; top: 398px;" data-block-id="d1dbf33b9269a96a2723652cb073b6c8"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 208 53"><rect width="208" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 117px; top: 403px;" data-block-id="0e75635c15737b9cd79a86a61e6f9156"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; color: rgb(17, 17, 17);">
+<p>&lt;Friend /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 208px; height: 53px; left: 126px; top: 457px;" data-block-id="920046828b08dda801601d8d816d7912"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 208 53"><rect width="208" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 117px; top: 464px;" data-block-id="8786053896655d8ea8c6d7acef97d12a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22; color: rgb(17, 17, 17);">
+<p>&lt;Friend /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 208px; height: 53px; left: 126px; top: 517px;" data-block-id="826438cf605d1161b959dc6420d49223"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 23;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 208 53"><rect width="208" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 117px; top: 524px;" data-block-id="76a1d6e3891c5a753f8f24d580f63b8d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; color: rgb(17, 17, 17);">
+<p>&lt;Friend /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 351px; height: 53px; left: 362px; top: 337px;" data-block-id="98fba8c553bef62561806faca47b7013"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 25;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 351 53"><rect width="351" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 353px; top: 344px;" data-block-id="73baabee094e0feb5e18f3806e71204b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 27; color: rgb(17, 17, 17);">
+<p>&lt;Message /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 351px; height: 53px; left: 481px; top: 398px;" data-block-id="3009a212d0252d700270cd9b716fd1ae"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 28;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 351 53"><rect width="351" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 616px; top: 405px;" data-block-id="808b74739e28ff3b66181259df99d320"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 29; color: rgb(17, 17, 17);">
+<p>&lt;Message /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 351px; height: 53px; left: 362px; top: 457px;" data-block-id="9cf7cccefb63d9529f8082e13c0b7646"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 30;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 351 53"><rect width="351" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 353px; top: 464px;" data-block-id="bf65b981cb08ec758ec4bacb1f2d6aac"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 31; color: rgb(17, 17, 17);">
+<p>&lt;Message /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 490px; height: 53px; left: 352px; top: 553px;" data-block-id="8c9dd9acb9ffc8cf785bf39f7647fb24"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 32;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 490 53"><rect width="490" height="53" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 264px; left: 353px; top: 560px;" data-block-id="9c40826ed6197ea7ee8a06509cef9f28"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 33; color: rgb(17, 17, 17);">
+<p>&lt;MessageInput /&gt;</p>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="28c19aa26694d6c420963af934e74dd9">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 41px;" data-block-id="2303217fba4b2af3a1c71127c5c61bb6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Composition</h2>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 892px; height: 457px; left: 34px; top: 192px;" data-block-id="4a4bd14485e9309fa03702bb22c0c3be"><div class="sl-block-content" style="z-index: 12; font-size: 161%;" data-highlight-theme="monokai"><pre><code>var ChatApp = React.createClass({
+  ...
+
+  render: function() {
+    return (
+      &lt;div&gt;
+        &lt;FriendList friends={this.state.friends} /&gt;
+        &lt;MessageList messages={this.state.messages} /&gt;
+        &lt;MessageInput handleInput={this.handleInput} /&gt;
+      &lt;/div&gt;
+    );
+  }
+});</code></pre></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="38ad45a1adb32c04a8cc5be163006738">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 35px;" data-block-id="2e35765d93fa02d6c7d200c4813cda08"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Composition</h2>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 921px; height: 467px; left: 20px; top: 198px;" data-block-id="d8bf85c3a417fca66d455f3ff5f7fd97"><div class="sl-block-content" style="z-index: 11; font-size: 162%;" data-highlight-theme="monokai"><pre class="javascript"><code>var MessageList = React.createClass({
+  render: function() {
+    var messages = this.props.messages.map((message) =&gt; {
+      return (
+        &lt;Message
+          content={message.content},
+          from={message.from}
+        /&gt;
+      );
+    });
+
+    return &lt;ul&gt;{messages}&lt;/ul&gt;;
+  }
+});</code></pre></div></div>
+</section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="9f080053865d1064ccc5f9dce120415d">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 70px;" data-block-id="1224fe8347abb41bae0449e8551bccaf"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Composition</h2>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 930px; height: 390px; left: 15px; top: 218px;" data-block-id="572cf5af4898f06ac73b71bb70cc5398"><div class="sl-block-content" style="z-index: 11; font-size: 183%;" data-highlight-theme="monokai"><pre><code>var Message = React.createClass({
+  render: function() {
+    return (
+      &lt;li&gt;
+        &lt;span&gt;From: {this.props.from}&lt;/span&gt;
+        &lt;span&gt;Content: {this.props.content}&lt;/span&gt;
+      &lt;/li&gt;
+    );
+  }
+});</code></pre></div></div>
+</section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="9c099d9d381ed4efc887953f29c2dbd6">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 140px;" data-block-id="1b31573572a01222519e86399180c417"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Composition</h2>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 661px; left: 150px; top: 331px;" data-block-id="35fb99852d989426848cda5786364200"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255); font-size: 175%;" dir="ui">
+<p>But where should i put all my state and stuff..?</p>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="1bf8c94e1734e661c8525e1e067ef8e8">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 35px;" data-block-id="e3107f029a211275e9bae345b0637d8d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Composition</h2>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="shape" style="width: 927px; height: 556px; left: 15px; top: 134px;" data-block-id="a0221e01c25a02a63c3e942617a1469c"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 927 556"><rect width="927" height="556" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 250px; left: 35px; top: 140px;" data-block-id="34910c99f7a07d26693476316946d2a6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 143%; color: rgb(17, 17, 17);">
+<p>&lt;ChatApp /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 272px; height: 414px; left: 48px; top: 234px;" data-block-id="cb47ed707875d991c134905515d13634"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 272 414"><rect width="272" height="414" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 575px; height: 275px; left: 353px; top: 291px;" data-block-id="10126b7f005ba920a892a447e3475b12"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 575 275"><rect width="575" height="275" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 48px; top: 234px;" data-block-id="de29607ddefb7237b771d28d9e7ec1b2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(17, 17, 17);">
+<p>&lt;FriendList /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 237.5px; left: 360px; top: 291px;" data-block-id="d24fc3e2aba1e01057db6d6045e22624"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(17, 17, 17);">
+<p>&lt;MessageList /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 208px; height: 53px; left: 56px; top: 379px;" data-block-id="b3c5698a7c5602724ce20b3edc9e9ef0"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 208 53"><rect width="208" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 47px; top: 386px;" data-block-id="834042f787f104e3428df01da3851827"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; color: rgb(17, 17, 17);">
+<p>&lt;Friend /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 208px; height: 53px; left: 56px; top: 437px;" data-block-id="952318af233ee04ae82b6bfb345c1777"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 208 53"><rect width="208" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 48px; top: 445px;" data-block-id="3bc9ebc73eee26ba04c1f0f759798fd6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; color: rgb(17, 17, 17);">
+<p>&lt;Friend /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 208px; height: 53px; left: 57px; top: 499px;" data-block-id="de7fcf507503d6245b7519dde78c13d8"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 208 53"><rect width="208" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 48px; top: 506px;" data-block-id="3ac3294622af0445837d1f26c775c8ef"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22; color: rgb(17, 17, 17);">
+<p>&lt;Friend /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 208px; height: 53px; left: 57px; top: 559px;" data-block-id="917414414b9f93bd8b74fb241de5eb10"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 23;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 208 53"><rect width="208" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 48px; top: 566px;" data-block-id="6803ec8e36e5232e809378eef035f6cc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; color: rgb(17, 17, 17);">
+<p>&lt;Friend /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 351px; height: 53px; left: 362px; top: 379px;" data-block-id="fa6422099e3faa4a900861c241cadfbd"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 25;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 351 53"><rect width="351" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 352px; top: 386px;" data-block-id="4e8e7a1659977dd9890d7c8980a7a5f2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26; color: rgb(17, 17, 17);">
+<p>&lt;Message /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 351px; height: 53px; left: 565px; top: 437px;" data-block-id="15922bb99052c7d74fba22d4aa46352d"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 27;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 351 53"><rect width="351" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 555px; top: 444px;" data-block-id="ae1a80b4124755748aae93944ae1e6b6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 28; color: rgb(17, 17, 17);">
+<p>&lt;Message /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 351px; height: 53px; left: 362px; top: 497px;" data-block-id="66733a399ebf999cfaebffa71ca80afc"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 255, 255)" data-shape-stretch="true" style="z-index: 29;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 351 53"><rect width="351" height="53" class="shape-element" fill="rgb(0, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 353px; top: 504px;" data-block-id="da62e7fd273ed7f7e58768fd3d52f0cc"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 30; color: rgb(17, 17, 17);">
+<p>&lt;Message /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 576px; height: 68px; left: 352px; top: 580px;" data-block-id="24a3cbd59a8c5f6d8b71272e0add8756"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(204, 204, 204)" data-shape-stretch="true" style="z-index: 31;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 576 68"><rect width="576" height="68" class="shape-element" fill="rgb(204, 204, 204)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 264px; left: 355px; top: 595px;" data-block-id="e7ab679c9089d3fa2f5a57fe6b7041d0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 32; color: rgb(17, 17, 17);">
+<p>&lt;MessageInput /&gt;</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 237.5px; left: 497px; top: 148px;" data-block-id="22a562ff73bbd43bb99d4c664dd72072"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 33; border-width: 1px; color: rgb(17, 17, 17); background-color: rgb(234, 153, 153);">
+<p>this.state.friends</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 280px; left: 497px; top: 195px;" data-block-id="b41a2190261cad93b126a25d3bb72e11"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 34; color: rgb(17, 17, 17); background-color: rgb(234, 153, 153);">
+<p>this.state.messages</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 240px; left: 496px; top: 241px;" data-block-id="0d425330c765b295f19811a88581f6ac"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 35; color: rgb(17, 17, 17); background-color: rgb(234, 153, 153);">
+<p>this.handleInput</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 237.5px; left: 65px; top: 291px;" data-block-id="170d1b6115e75cab6ec3f47b58d19e8e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 36; font-size: 63%; color: rgb(17, 17, 17); background-color: rgb(255, 255, 0);">
+<p>this.props.friends</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 237.5px; left: 648px; top: 306px;" data-block-id="7510f4223cddc0ee5cc611b611510e07"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 37; font-size: 63%; color: rgb(17, 17, 17); background-color: rgb(255, 255, 0);">
+<p>this.props.friends</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 237.5px; left: 648px; top: 591px;" data-block-id="7de06b258d7398e0e8ab91a05301c68d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 40; font-size: 63%; color: rgb(17, 17, 17); background-color: rgb(255, 255, 0);">
+<p>this.props.handleInput</p>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="107d219e9720fcc178363ac30a2f130d">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 118px;" data-block-id="8f1807d2d911e3f180807f50c0055811"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Data Flow</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 311px;" data-block-id="6d5be55d17b1e11498adc2b87ede3375"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255); font-size: 133%;">
+<p>So won't this turn into a mess when my app grows in complexity..?</p>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="0aaddcf62c4326292fcc22aa999415d7">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 55px;" data-block-id="69fb3c8f2c4abebc1b7721e23da6e402"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Yes</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 595px;" data-block-id="efc68867c85fb4bee207a893757b7404"><div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255); font-size: 94%;" data-fragment-index="0">
+<h2>But more on that later</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="b1935e20db49b06ccaedbfe8b9b6a67a" style="min-width: 30px; min-height: 30px; width: 520px; height: 420.16px; left: 220px; top: 154px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="375" data-natural-height="303" data-src="deck-24/1826774-dog-tangled.gif"></div></div></section></section><section class="has-dark-background" data-background-color="#472172" data-id="79511632446160db8b0dea129cff86d3"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 43px; height: auto;" data-block-id="d945080e140ddc07ca6f57f09c32232b"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>React Basics Quiz</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 331px;" data-block-id="17e904d3fda7812ec60e9faee8e134ac"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /exercises folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#21202a" data-id="431e12c1ecd60e9969073ef6978ce1fb"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="11d98c7692739a9fac7fb4bb222440af"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%; z-index: 10;">
+<h1>JSX</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="f2f56ede9cc6d14b5a30f629e7c139c1" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 331px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /lectures folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#472172" data-id="6ddc00ead7763c97599c377a3241d9a9"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 43px; height: auto;" data-block-id="af4d93696ed6f715d601cd198a681de4"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>JSX Quiz</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 331px;" data-block-id="2986c40732e29df9ba1804c34c8dacd5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /exercises folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#21202a" data-id="993c13a268ec8711acda1424a9fc836f"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="149b5d7872c2ccdb6b33c26f30dee7d0"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%; z-index: 10;">
+<h1>PropTypes</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 331px;" data-block-id="f2445b91f4c758d5e0913b734f87ad9f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /lectures folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#472172" data-id="2e474db21edb160cae2bf81d55ead00e"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 43px; height: auto;" data-block-id="a35f43ff8e599a1870127a950cf2202d"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>PropTypes Quiz</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 331px;" data-block-id="8baacdea7aa63fadc1986cc1aa560033"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /exercises folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#21202a" data-id="53ee51f3c6e0b77798541d3dcba106e8"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="d2f0b48de4a561ceb017150d2ee8415f"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%; z-index: 10;">
+<h1>Props<br>
+vs<br>
+State</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 541px;" data-block-id="160d1c6639241555dc8d8dbb4210d8f0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /lectures folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#21202a" data-id="cfa7a02153e6b9632975d1f95bfd66ec"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="c8a2c3310c4b97472955556e1c3bcc25"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%; z-index: 10;">
+<h1>Lifecycle</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 331px;" data-block-id="58860e2b987d267febb3c8a4ecdf3774"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /lectures folder</p>
+</div></div></section><section class="stack" data-id="aa2fa55f21a0db4dfe9f17204838c18b"><section class="has-dark-background" data-background-color="#21202a" data-id="9e698444e2d5520a72ae1d7678927368"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 70px; height: auto;" data-block-id="0acb1d836b006ea2c900b0f49b891330"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 11;">
+<h1>Lifecycle methods</h1>
+</div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="7c750f94d6cfac2278e1fa2cdf94cc9d">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 0px;" data-block-id="397ed8984b94f2b76aa1f260b11edb14"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Lifecycle Methods</h2>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="code" style="width: 772px; height: 612px; left: 94px; top: 78px;" data-block-id="63a8205b5c7470234d2d61ceb451bb2f"><div class="sl-block-content" style="z-index: 12; font-size: 150%;" data-highlight-theme="monokai"><pre class="javascript"><code>var MyComponent = React.createClass({
+  // lifecycle methods
+  getDefaultProps: ...
+  getInitialState: ...
+  componentWillMount: ...
+  componentDidMount: ...
+  componentDidUpdate: ...
+  componentWillReceiveProps: ...
+  componentWillUnmount: ...
+  shouldComponentUpdate: ...
+
+  // custom methods
+  handleThis: ...
+  handleThat: ...
+  computeThis: ...
+  computeThat: ...
+
+  // rendering
+  render: ...
+});</code></pre></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="1c78112cb28aa399fb4a8c750fb3af7a">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 35px;" data-block-id="37cece9055c25e357fc001c1cec9b794"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Lifecycle Methods</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 226px; left: 80px; top: 140px;" data-block-id="17deb6cee50e0b249a38442aaff2763c"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);">
+<p>First render call</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 209px; left: 376px; top: 140px;" data-block-id="6b0d03283fe775cf470f004a17448c14"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);">
+<p>Subsequent</p>
+
+<p>render calls</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 209px; left: 666px; top: 140px;" data-block-id="e833fea8297b21b8a8a4ab983ad15c32"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(255, 255, 255);" dir="ui">
+<p>Updating state</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 80px; top: 241px;" data-block-id="666110225533901ff45776ab8c464893"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 80px; top: 336px;" data-block-id="6db026b812123bb66ec25afe49cb4228"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 80px; top: 431px;" data-block-id="b25b12708ff7c09291b0077f26fe175b"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 80px; top: 526px;" data-block-id="8dd84544efe23333a2eccaec7d202f01"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(147, 196, 125)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(147, 196, 125)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 196px; left: 97px; top: 255px;" data-block-id="c8aed511855076f160c34cd898690793"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; border-width: 1px; font-size: 71%; color: rgb(17, 17, 17);">
+<p>getDefaultProps</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 196px; left: 98px; top: 350px;" data-block-id="624357758c2dcb9d6da470ff0569409b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; border-width: 1px; font-size: 71%; color: rgb(17, 17, 17);">
+<p>getInitialState</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224px; left: 83px; top: 445px;" data-block-id="563a2759a8b6f588c98455c0530982a4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; border-width: 1px; font-size: 61%; color: rgb(17, 17, 17);">
+<p>componentWillMount</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224px; left: 83px; top: 539px;" data-block-id="7e35ba56c3d4fd301ab2296ac0c0220f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21; border-width: 1px; font-size: 85%; color: rgb(17, 17, 17);">
+<p>render</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 80px; top: 621px;" data-block-id="fcbd17fb64c360cf5a7aea0024aae51c"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224px; left: 83px; top: 634px;" data-block-id="0674f20d59a531a56cfcbffba9374817"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23; border-width: 1px; font-size: 70%; color: rgb(17, 17, 17);">
+<p>componentDidMount</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 365px; top: 241px;" data-block-id="74e7f4916d4270cccf82c8bb1ac9e056"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 24;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 365px; top: 336px;" data-block-id="90a2018180650af0fe5451660c62bb02"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(234, 153, 153)" data-shape-stretch="true" style="z-index: 25;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(234, 153, 153)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 365px; top: 431px;" data-block-id="df5f24576ace02eba0dfab3669e03300"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 229, 153)" data-shape-stretch="true" style="z-index: 26;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(255, 229, 153)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 365px; top: 526px;" data-block-id="2e9bcb829df24e331b3ab2f0710f4cf7"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(147, 196, 125)" data-shape-stretch="true" style="z-index: 27;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(147, 196, 125)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 203px; left: 379px; top: 262px;" data-block-id="b7afe12929f136fdc47549b266f6770a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 28; border-width: 1px; font-size: 50%; color: rgb(17, 17, 17);">
+<p>componentWillReceiveProps</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 196px; left: 382px; top: 355px;" data-block-id="82dd3c49990714004976b9caf2d4b9e1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 29; border-width: 1px; font-size: 52%; color: rgb(17, 17, 17);">
+<p>shouldComponentUpdate</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224px; left: 368px; top: 445px;" data-block-id="ad1120a219a073c25155cf654993b998"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 30; border-width: 1px; font-size: 61%; color: rgb(17, 17, 17);">
+<p>componentWillUpdate</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224px; left: 368px; top: 539px;" data-block-id="fd751b3b9ee25591cc2a94655494cd36"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 31; border-width: 1px; font-size: 85%; color: rgb(17, 17, 17);">
+<p>render</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 365px; top: 621px;" data-block-id="8f0720e0f72441177d89745ba28dfe38"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(111, 168, 220)" data-shape-stretch="true" style="z-index: 32;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(111, 168, 220)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224px; left: 368px; top: 634px;" data-block-id="a26f4e91f2d2b9f93178e79921cf1bcd"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 33; border-width: 1px; font-size: 70%; color: rgb(17, 17, 17);">
+<p>componentDidUpdate</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 655px; top: 336px;" data-block-id="6131d46471f37635a5d4a17caa04881c"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(234, 153, 153)" data-shape-stretch="true" style="z-index: 34;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(234, 153, 153)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 655px; top: 431px;" data-block-id="44fa7a82c444f98e89ef6e80762078e6"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 229, 153)" data-shape-stretch="true" style="z-index: 35;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(255, 229, 153)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 655px; top: 526px;" data-block-id="53e91f2cc623b1011058ad5114968cff"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(147, 196, 125)" data-shape-stretch="true" style="z-index: 36;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(147, 196, 125)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 196px; left: 672px; top: 355px;" data-block-id="15bb58aa0be4f480d80c00c71c6e73d4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 37; border-width: 1px; font-size: 52%; color: rgb(17, 17, 17);">
+<p>shouldComponentUpdate</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224px; left: 658px; top: 445px;" data-block-id="8f7c5f262737d3323e27e090a6136ca6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 38; border-width: 1px; font-size: 61%; color: rgb(17, 17, 17);">
+<p>componentWillUpdate</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224px; left: 658px; top: 539px;" data-block-id="77c16793c9c559f5a6a28e32a60435ab"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 39; border-width: 1px; font-size: 85%; color: rgb(17, 17, 17);">
+<p>render</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 231px; height: 58px; left: 655px; top: 621px;" data-block-id="4c7ff5776819eaa78a37654a9a969c1f"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(111, 168, 220)" data-shape-stretch="true" style="z-index: 40;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 231 58"><rect width="231" height="58" class="shape-element" fill="rgb(111, 168, 220)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 224px; left: 658px; top: 634px;" data-block-id="7dd3ee8d787214b48376428fe6924aa1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 41; border-width: 1px; font-size: 70%; color: rgb(17, 17, 17);">
+<p>componentDidUpdate</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 177px; top: 299px;" data-block-id="5a8a9c2df1c61e8ba381338ec2edac83"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 42;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 176px; top: 394px;" data-block-id="ef3510f8ce1de2c9eef633887ef33d80"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 43;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 177px; top: 489px;" data-block-id="197ebfdd91a05f8174ed3c075b58a614"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 44;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 177px; top: 584px;" data-block-id="e22147a8058ad203e98e255c914e43ce"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 45;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 462px; top: 299px;" data-block-id="015f56752c5b19891c1aaa6aa460dfb1"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 46;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 461px; top: 394px;" data-block-id="5dee26e7f3f03347a49ce81c44df5e0f"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 48;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 462px; top: 489px;" data-block-id="fbdb354f4430de4d6062f008e47dff64"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 49;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 461px; top: 584px;" data-block-id="898a15f66daa686cc6a716e1a8480459"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 50;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 752px; top: 394px;" data-block-id="d0ce684a3185f0c1dd2746940828bc08"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 51;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 751px; top: 489px;" data-block-id="20e2a1955870f97d4ba2fe0e59c53d25"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 52;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 38px; height: 37px; left: 751px; top: 584px;" data-block-id="73b38cfe75a2d9f5addf69b610b2c2c0"><div class="sl-block-content" data-shape-type="arrow-down" data-shape-fill-color="rgb(238, 238, 238)" data-shape-stretch="false" style="z-index: 53;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="xMidYMid" viewbox="0 0 37 37"><polygon points="18.5,37 37,18.5 25.9,18.5 25.9,0 11.1,0 11.1,18.5 0,18.5 18.5,37" class="shape-element" fill="rgb(238, 238, 238)"></polygon></svg></div></div></section><section data-background-image="deck-24/1156752-logo-dimmed.png" data-id="a6b216303e55c974f5bd2f98222fc5f3">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 755px; left: 103px; top: 102px;" data-block-id="3a7d268d70a771f9e4129bc428dab895"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(255, 255, 255); font-size: 94%;">
+<h2>Lifecycle Methods</h2>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 209px; left: 374px; top: 219px;" data-block-id="9a76be66e00c5094249fa56e2f98b816"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);">
+<p>Being removed from the DOM</p>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="shape" style="width: 423px; height: 79px; left: 267px; top: 379px;" data-block-id="ab63dbd4badd00d7aff495da9e004ec0"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 24;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 423 79"><rect width="423" height="79" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 407px; left: 277px; top: 399px;" data-block-id="ac7f6445ed62870c1167a8bf90341e08"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 28; border-width: 1px; font-size: 90%; color: rgb(17, 17, 17);">
+<p>componentWillUnmount</p>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section></section><section class="has-dark-background" data-background-color="#21202a" data-id="ffa1bcb61fefd0b860213cd072495455"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="85d2ffa26f3175f029872bb4ad2ab94c"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%; z-index: 10;">
+<h1>Mixins</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 331px;" data-block-id="060cd19190f3a9e49cfe44539e26cfed"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /lectures folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#472172" data-id="d5e2cf278711f61d4407a66c608253c3"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 43px; height: auto;" data-block-id="93469e3ad5ca1173e08d95167b2682ef"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Mixins Quiz</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 331px;" data-block-id="c4615e9ba7e8ea1e7a69d0edeabdb2c9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /exercises folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#21202a" data-id="e13b65301835e1dd10eaf5647495e1c9"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="ff3ea16166a10c29981b9bbf97fe4065"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%; z-index: 10;">
+<h1>HOC's</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 331px;" data-block-id="6ee295228b582909081c0218bb827388"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /lectures folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#472172" data-id="3f9a6022e8018e430ae21e2f4537908f"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 43px; height: auto;" data-block-id="31337d665add8977ff5cc02c196fa7b0"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>HOC's Quiz</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 331px;" data-block-id="971ddf10af5b099291401654ae46d9e6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /exercises folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#21202a" data-id="237114e0908bf13a202bfa5dc2d828c2"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="45b6eed18c98d20b60cc817e3ee1acff"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%; z-index: 10;">
+<h1>Transitions<br>
+and<br>
+Animations</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 528px;" data-block-id="957bce28fbd5551cb26fda1c92ee4759"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /lectures folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#21202a" data-id="77c9d31392792b11b5bcb72d1329f93e"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 58px; height: auto;" data-block-id="b5688cb47c6b5414a39192856884546d"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="font-size: 150%; z-index: 10;">
+<h1>Forms</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 180px; top: 331px;" data-block-id="6bd85f6c4e7df774ae93c5d08b262585"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /lectures folder</p>
+</div></div></section><section class="has-dark-background" data-background-color="#472172" data-id="25a567fc701a130d28003c6b1ba6812d"><div class="sl-block" data-block-type="text" style="width: 800px; left: 80px; top: 43px; height: auto;" data-block-id="9d0c605e78627d49bf7657786067174a"><div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10;">
+<h1>Forms Quiz</h1>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 331px;" data-block-id="1591aadd8f0f99efe6fe969feb98aa70"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p>Check the /exercises folder</p>
+</div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":536369,"slug":"deck-24","title":"React in the Real World 2 - Basic React Concepts","description":"A walkthrough of the more advanced concepts of React, Unidirectional Data Flow and Routing","visibility":"self","published_at":null,"sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/96611a3ddedb157e678d5b97d1946291/thumb.jpg","view_count":0,"user":{"id":20204,"username":"eiriklv","name":"Eirik Langholm Vullum","description":"JavaScript fanatic that loves node.js and React.","thumbnail_url":"https://www.gravatar.com/avatar/be073daacb6ca661aae406636595aa83?s=140\u0026d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","pro":true,"team_id":null,"settings":{"id":102496,"present_controls":true,"present_upsizing":true,"present_notes":true}},"background_transition":"fade","transition":"slide","theme_id":null,"theme_font":"montserrat","theme_color":"cobalt-orange","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"should_loop":false,"share_notes":null,"slide_number":null,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1476118816191,"font_typekit":null,"font_google":null,"notes":{}}};
+			SLConfig.current_user = {
+				name: "Eirik Langholm Vullum",
+				username: "eiriklv",
+				pro: true
+			};
+
+
+			// Use the local font path
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/head.min.js"></script>
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+		<script>
+			// Make Slides speaker notes available in the reveal.js speaker view
+			if( SLConfig.deck.notes ) {
+				[].forEach.call( document.querySelectorAll( '.reveal .slides section' ), function( slide ) {
+
+					var value = SLConfig.deck.notes[ slide.getAttribute( 'data-id' ) ];
+					if( value && typeof value === 'string' ) {
+						slide.setAttribute( 'data-notes', value );
+					}
+
+				} );
+			}
+
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				mouseWheel: false,
+				showNotes: SLConfig.deck.share_notes,
+				slideNumber: SLConfig.deck.slide_number,
+
+				autoSlide: SLConfig.deck.auto_slide_interval || 0,
+				autoSlideStoppable: true,
+
+				rolling_links: SLConfig.deck.rolling_links || true,
+				center: SLConfig.deck.center || false,
+				loop: SLConfig.deck.should_loop || false,
+				rtl: SLConfig.deck.rtl || false,
+
+				transition: SLConfig.deck.transition,
+				backgroundTransition: SLConfig.deck.background_transition,
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js', async: true, callback: function() { hljs.initHighlighting(); hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+
+		
+
+	</body>
+</html>

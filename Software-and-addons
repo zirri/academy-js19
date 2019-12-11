@@ -5,15 +5,19 @@ Nyttig software:
 - Node
 - Slack
 - jenkins (deployment - bra men av og for ingeniører)
+- postgres
+
+
+Rammeverk:
+- React (utviklet av Facebook, reactjs.org)
+- Vue
+- Angular (Google)
 
 
 Nyttige add-ons:
 - VS Code:
     Quokka
     Color brackets (noe lignende)
-
-- Nettleser:
-
 
 NPM:
 - express
@@ -30,6 +34,11 @@ NPM:
 - assert (alternativ til chai, men Magnus mener chai har bedre dokumentasjon)
 - eslint test (tool for identifying and reporting on patterns found in ECMAScript/JavaScript code)
 - socket.io (ting som er live - chat/notifications etc.)
+- pg (postgres)
+
+git-ressurser:
+- create-react-app (git start-app)
+
 
 Ressurser:
 - uu.difi.no
@@ -39,3 +48,5 @@ Ressurser:
 - codewars
 - expressjs.com
 - reqex101.com
+- babeljs.io (convertering mellom nye JS/react-formater og gamle)
+- reactjs.org (dokumentasjon react)

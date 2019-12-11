@@ -1,9 +1,16 @@
 [
   {
     "id": "2",
-    "title": "Harry Potter",
+    "title": "Harry Potter and the philsoper stone",
     "author": "J.K. Rowling",
     "img": "http://www.thealmightyguru.com/Reviews/HarryPotter/Images/Cover-SorcerersStone.jpg",
     "summary": "She and the girls walked slowly forward toward the unicorn, leaving the boys standing near the paddock fence, watching. The moment Professor Grubbly-Plank was out of earshot. Harry turned to Ron. "
+  },
+  {
+    "id": "3",
+    "title": "The Da Vinci code",
+    "author": "Dan Brown",
+    "img": "sdfh",
+    "summary": "sjdkfns"
   }
 ]

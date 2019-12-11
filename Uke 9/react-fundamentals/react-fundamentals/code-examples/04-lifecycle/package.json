@@ -1,0 +1,25 @@
+{
+  "name": "mixins-example",
+  "version": "1.0.0",
+  "description": "Mixins Example",
+  "main": "index.js",
+  "scripts": {
+    "start": "node_modules/.bin/webpack-dev-server --content-base public --watch-poll --port 3000 --hot"
+  },
+  "author": "Eirik Vullum <evullum@gmail.com> (http://www.vullum.io/)",
+  "license": "ISC",
+  "dependencies": {
+    "react": "0.14.x",
+    "react-dom": "0.14.x"
+  },
+  "devDependencies": {
+    "babel-core": "5.8.x",
+    "babel-loader": "5.3.x",
+    "css-loader": "0.18.x",
+    "expose-loader": "0.7.x",
+    "react-hot-loader": "1.3.x",
+    "style-loader": "0.12.x",
+    "webpack": "1.12.x",
+    "webpack-dev-server": "1.11.x"
+  }
+}

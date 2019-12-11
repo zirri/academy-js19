@@ -62,7 +62,8 @@ function renderDetailsMarkup(book){
     return `
     <div id="details">
         <button id="button-overview">Back to overview</button>
-        <img src="${book.img}">
+        <br>
+        <img src="${book.imgurl}">
         <h2>${book.title}</h2>
         <h3>Written by ${book.author}</h3>
         <p>${book.summary}</p>
@@ -74,15 +75,16 @@ function renderDetailsMarkup(book){
 function renderEditBookMarkup(book){
     return `<div id="edit-book">
     <button id="button-overview">Back to overview</button>
+    <br>
     <form id="edit-book-form">
         <label for="title">Title: </label>
-        <input type="text" name="title" id="title" value="${book.title}">
+        <input type="text" name="title" id="title" value="${book.title||''}">
         <label for="author">Written by: </label>
-        <input type="text" name="author" id="author" value="${book.author}">
+        <input type="text" name="author" id="author" value="${book.author||''}">
         <label for="img-url">Image url: </label>
-        <input type="text" name="img-url" id="imgUrl" value="${book.img}">
+        <input type="text" name="imgurl" id="imgurl" value="${book.imgurl||''}">
         <label for="summary">summary: </label>
-        <input type="text" name="summary" id="summary" value="${book.summary}">
+        <input type="text" name="summary" id="summary" value="${book.summary||''}">
     </form>
     <button type="submit" id="submit-button">Save</button>
     <button id="cancel-button">Cancel</button></div>`;
@@ -90,14 +92,15 @@ function renderEditBookMarkup(book){
 
 function renderAddBookMarkup(){
     return `<div id="edit-book">
+    <br>
     <button id="button-overview">Back to overview</button>
     <form id="add-book-form">
         <label for="title">Title: </label>
-        <input type="text" name="title" id="title">
+        <input type="text" name="title" id="title" min="1">
         <label for="author">Written by: </label>
         <input type="text" name="author" id="author">
         <label for="img-url">Image url: </label>
-        <input type="text" name="imgUrl" id="imgUrl">
+        <input type="text" name="imgurl" id="imgurl">
         <label for="summary">summary: </label>
         <input type="text" name="summary" id="summary">
     </form>
@@ -106,9 +109,33 @@ function renderAddBookMarkup(){
 }
 
 
+function renderErrorMarkup(){
+    return `
+    <div>
+        <p>Something went wrong.</p>
+        <button id="overview-button">To overview</button>
+    </div>`;
+}
+
 //rendering functions
+
+function renderError(parent){
+    parent.innerHTML = renderErrorMarkup();
+
+    const overviewButton = document.querySelector('#overview-button');
+    overviewButton.addEventListener('click', event => {
+        renderOverview(parent);
+    })
+
+}
+
 async function renderOverview(parent){
-    const books = await getAllBooks();
+    let books;
+    try{
+        books = await getAllBooks();
+    }catch (err){
+        return renderError(parent);
+    }
     parent.innerHTML = createOverviewMarkup(books);
 
     //Eventlisteners
@@ -123,9 +150,14 @@ async function renderOverview(parent){
 }
 
 async function renderBookDetails(parent, bookId){
-    const book = await getBookById(bookId);
+    let book;
+    try{
+        book = await getBookById(bookId);
+    }catch (err){
+        return renderError(parent);
+    };
     parent.innerHTML = renderDetailsMarkup(book);
-    
+    console.log(book)
     //Eventlisteners
     const editButton = document.querySelector('#edit-button');
     editButton.addEventListener('click', event => {
@@ -143,18 +175,23 @@ async function renderBookDetails(parent, bookId){
         .then(res => {
             console.log(res.status);
             renderOverview(parent);
-        })
+        });
     });
 }
 
 async function renderEditBook(parent, bookId){
-    const book = await getBookById(bookId);
+    let book;
+    try{
+        book = await getBookById(bookId);
+    }catch (err){
+        return renderError(parent);
+    };
     parent.innerHTML = renderEditBookMarkup(book);
 
     //Eventlisteners
     const overviewButton = document.querySelector('#button-overview');
     overviewButton.addEventListener('click', event => {
-        renderAddBook(parent);
+        renderOverview(parent);
     })
 
     const cancelButton = document.querySelector('#cancel-button');
@@ -169,7 +206,7 @@ async function renderEditBook(parent, bookId){
         const bookToEdit = {
             title: editForm.title.value,
             author: editForm.author.value,
-            img: editForm.imgUrl.value,
+            imgurl: editForm.imgurl.value,
             summary: editForm.summary.value,
             bookId: bookId
         };
@@ -203,7 +240,7 @@ async function renderAddBook(parent){
         const bookToAdd = {
             title: addForm.title.value,
             author: addForm.author.value,
-            img: addForm.imgUrl.value,
+            imgurl: addForm.imgurl.value,
             summary: addForm.summary.value,
         };
         postNewBook(bookToAdd)
