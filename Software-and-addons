@@ -36,6 +36,7 @@ NPM:
 - eslint test (tool for identifying and reporting on patterns found in ECMAScript/JavaScript code)
 - socket.io (ting som er live - chat/notifications etc.)
 - pg (postgres)
+- react-router-dom
 
 git-ressurser:
 - create-react-app (git start-app)
